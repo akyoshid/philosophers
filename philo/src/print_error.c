@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 22:30:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/21 05:56:55 by akyoshid         ###   ########.fr       */
+/*   Created: 2025/02/21 05:51:53 by akyoshid          #+#    #+#             */
+/*   Updated: 2025/02/21 05:55:36 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-int	main(int argc, char *argv[])
+void	print_error(int error_code)
 {
-	int		rv;
-	t_data	data;
-
-	rv = proc_data(argc, argv, &data);
-	if (rv != 0)
-		return (rv);
-	printf("data.philo_num: %d\n", data.philo_num);
-	printf("data.die_time: %d\n", data.die_time);
-	printf("data.eat_time: %d\n", data.eat_time);
-	printf("data.sleep_time: %d\n", data.sleep_time);
-	printf("data.eat_limit: %d\n", data.eat_limit);
-	return (PHILO_SUCCESS);
+	if (error_code == ERR_ARGC)
+	{
+		ft_dprintf(2,
+			"philo: invalid number of arguments\n"
+			"Usage: ./philo number_of_philosophers time_to_die time_to_eat "
+			"time_to_sleep [number_of_times_each_philosopher_must_eat]\n");
+	}
 }
