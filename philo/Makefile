@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/02/21 05:59:34 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/02/22 00:52:22 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC = \
 			$(SRC_DIR)main.c \
 			$(SRC_DIR)philo_atoi.c \
 			$(SRC_DIR)print_error.c \
-			$(SRC_DIR)proc_data.c
+			$(SRC_DIR)proc_args.c
 
 OBJ =		$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))
 

@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/21 05:56:55 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/22 01:08:47 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 int	main(int argc, char *argv[])
 {
 	int		rv;
-	t_data	data;
+	t_sim_data	sim_data;
 
-	rv = proc_data(argc, argv, &data);
+	rv = proc_args(argc, argv, &sim_data);
 	if (rv != 0)
 		return (rv);
-	printf("data.philo_num: %d\n", data.philo_num);
-	printf("data.die_time: %d\n", data.die_time);
-	printf("data.eat_time: %d\n", data.eat_time);
-	printf("data.sleep_time: %d\n", data.sleep_time);
-	printf("data.eat_limit: %d\n", data.eat_limit);
+	printf("sim_data.philo_num: %d\n", sim_data.philo_num);
+	printf("sim_data.die_time: %d\n", sim_data.die_time);
+	printf("sim_data.eat_time: %d\n", sim_data.eat_time);
+	printf("sim_data.sleep_time: %d\n", sim_data.sleep_time);
+	printf("sim_data.eat_limit: %d\n", sim_data.eat_limit);
 	return (PHILO_SUCCESS);
 }
