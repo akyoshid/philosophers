@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:42:42 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/23 07:54:47 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/23 10:22:33 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,12 @@ void	_init_philo_data(t_philo_data *philo_data, t_sim_data *sim_data)
 	{
 		philo_data[i].philo_id = i + 1;
 		philo_data[i].sim_data = sim_data;
-		if (sim_data->philo_num % 2 == 0)
-		{
-			if (i % 2 == 0)
-				philo_data[i].first_think_time = 0;
-			else
-				philo_data[i].first_think_time = sim_data->eat_time;
-		}
+		if (sim_data->philo_num % 2 != 0 && i == sim_data->philo_num - 1)
+			philo_data[i].first_think_time = sim_data->eat_time * 2;
+		else if (i % 2 == 0)
+			philo_data[i].first_think_time = 0;
 		else
-		{
-			if (i == sim_data->philo_num - 1)
-				philo_data[i].first_think_time = sim_data->eat_time * 2;
-			else if (i % 2 == 0)
-				philo_data[i].first_think_time = 0;
-			else
-				philo_data[i].first_think_time = sim_data->eat_time;
-		}
+			philo_data[i].first_think_time = sim_data->eat_time;
 		i++;
 	}
 }
