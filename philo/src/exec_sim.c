@@ -6,13 +6,13 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:42:42 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/23 07:45:24 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/23 07:54:47 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-void	init_philo_data(t_philo_data *philo_data, t_sim_data *sim_data)
+void	_init_philo_data(t_philo_data *philo_data, t_sim_data *sim_data)
 {
 	int	i;
 
@@ -41,7 +41,7 @@ void	init_philo_data(t_philo_data *philo_data, t_sim_data *sim_data)
 	}
 }
 
-int	create_philos(t_sim_data *sim_data, t_philo_data *philo_data)
+int	_create_philos(t_sim_data *sim_data, t_philo_data *philo_data)
 {
 	int	i;
 
@@ -67,12 +67,12 @@ int	create_philos(t_sim_data *sim_data, t_philo_data *philo_data)
 	return (0);
 }
 
-void	start_sim(t_sim_data *sim_data)
+void	_start_sim(t_sim_data *sim_data)
 {
 	sim_data->start_time = get_current_time_ms();
 }
 
-int	wait_philos(t_sim_data *sim_data, t_philo_data *philo_data)
+int	_wait_philos(t_sim_data *sim_data, t_philo_data *philo_data)
 {
 	int	i;
 
@@ -89,11 +89,11 @@ int	exec_sim(t_sim_data *sim_data)
 {
 	t_philo_data	philo_data[200];
 
-	init_philo_data(philo_data, sim_data);
-	if (create_philos(sim_data, philo_data) != 0)
+	_init_philo_data(philo_data, sim_data);
+	if (_create_philos(sim_data, philo_data) != 0)
 		return (1);
-	start_sim(sim_data);
-	if (wait_philos(sim_data, philo_data) != 0)
+	_start_sim(sim_data);
+	if (_wait_philos(sim_data, philo_data) != 0)
 		return (1);
 	return (0);
 }

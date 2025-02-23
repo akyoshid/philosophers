@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 14:51:09 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/21 05:42:38 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/23 07:55:23 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include "../inc/philo.h"
 
-int	check_non_integer(char const *str)
+int	_check_non_integer(char const *str)
 {
 	if (*str == '-')
 		str++;
@@ -36,7 +36,7 @@ int	philo_atoi(char const *str)
 {
 	int	num;
 
-	if (check_non_integer(str) != 0)
+	if (_check_non_integer(str) != 0)
 		return (-2);
 	if (*str == '-')
 		return (-1);
