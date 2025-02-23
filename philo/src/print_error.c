@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 05:51:53 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/23 06:40:12 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/23 10:53:44 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,6 @@ void	print_error(int error_code)
 	}
 	else if (error_code == ERR_PTHREAD_CREATE)
 		ft_dprintf(2, "philo: pthread_create faild\n");
+	else if (error_code == ERR_PTHREAD_MUTEX_INIT)
+		ft_dprintf(2, "philo: pthread_mutex_init faild\n");
 }

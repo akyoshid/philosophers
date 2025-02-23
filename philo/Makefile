@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/02/23 07:48:01 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/02/23 11:02:15 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ SRC = \
 			$(SRC_DIR)ft_printf/ft_print_dec.c \
 			$(SRC_DIR)ft_printf/ft_print_hex.c \
 			$(SRC_DIR)ft_printf/ft_printf.c \
+			$(SRC_DIR)clean_up_mutex.c \
+			$(SRC_DIR)init_mutex.c \
 			$(SRC_DIR)exec_sim.c \
 			$(SRC_DIR)get_current_time_ms.c \
 			$(SRC_DIR)init_sim_data.c \

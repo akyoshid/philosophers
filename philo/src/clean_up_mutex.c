@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   clean_up_mutex.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 22:30:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/23 11:00:25 by akyoshid         ###   ########.fr       */
+/*   Created: 2025/02/23 11:00:17 by akyoshid          #+#    #+#             */
+/*   Updated: 2025/02/23 11:02:27 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-int	main(int argc, char *argv[])
+void	clean_up_mutex(t_sim_data *sim_data, int fork_count)
 {
-	t_sim_data	sim_data;
+	int	i;
 
-	if (init_sim_data(argc, argv, &sim_data) != 0)
-		return (PHILO_SYNTAX_ERROR);
-	if (init_mutex(&sim_data) != 0)
-		return (PHILO_GENERAL_ERROR);
-	if (exec_sim(&sim_data) != 0)
-		return (PHILO_GENERAL_ERROR);
-	clean_up_mutex(&sim_data, sim_data.philo_num);
-	return (PHILO_SUCCESS);
+	pthread_mutex_destroy(&sim_data->flag.m);
+	i = 0;
+	while (i < fork_count)
+	{
+		pthread_mutex_destroy(&sim_data->fork[i].m);
+		i++;
+	}
 }
