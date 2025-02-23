@@ -14,7 +14,7 @@
 
 int	main(int argc, char *argv[])
 {
-	int		rv;
+	int			rv;
 	t_sim_data	sim_data;
 
 	rv = init_sim_data(argc, argv, &sim_data);

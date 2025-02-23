@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 05:56:33 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/22 08:25:55 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/23 04:45:45 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	print_init_sim_error(int sim_data_field_num, int sim_data_value)
 			"time_to_sleep [number_of_times_each_philosopher_must_eat]\n", str);
 	else
 		ft_dprintf(2, "philo: %s: invaild argument\n"
-		"Usage: ./philo number_of_philosophers time_to_die time_to_eat "
-		"time_to_sleep [number_of_times_each_philosopher_must_eat]\n", str);
+			"Usage: ./philo number_of_philosophers time_to_die time_to_eat "
+			"time_to_sleep [number_of_times_each_philosopher_must_eat]\n", str);
 	return (PHILO_SYNTAX_ERROR);
 }
 
