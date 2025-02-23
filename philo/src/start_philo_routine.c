@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   start_philo_routine.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 22:30:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/23 07:43:59 by akyoshid         ###   ########.fr       */
+/*   Created: 2025/02/23 07:43:44 by akyoshid          #+#    #+#             */
+/*   Updated: 2025/02/23 07:43:54 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-int	main(int argc, char *argv[])
+void	*start_philo_routine(void *arg)
 {
-	t_sim_data	sim_data;
+	t_philo_data	*philo_data;
 
-	if (init_sim_data(argc, argv, &sim_data) != 0)
-		return (PHILO_SYNTAX_ERROR);
-	// init_mutex
-	if (exec_sim(&sim_data) != 0)
-		return (PHILO_GENERAL_ERROR);
-	// clean_up_mutex
-	return (PHILO_SUCCESS);
+	philo_data = (t_philo_data *)arg;
+	while (1)
+	{
+		usleep(100);
+		if (philo_data->sim_data->start_time != 0)
+			break ;
+	}
+	printf("philo_id: %d\nfirst_think_time: %d\n",
+		philo_data->philo_id, philo_data->first_think_time);
+	return (NULL);
 }

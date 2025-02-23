@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/22 08:26:01 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/23 07:48:41 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef enum e_exit_status
 typedef enum e_error_code
 {
 	ERR_ARGC,
+	ERR_PTHREAD_CREATE,
 }	t_error_code;
 
 typedef enum e_sim_data_field_num
@@ -54,13 +55,27 @@ typedef struct s_sim_data
 	long	start_time;
 }			t_sim_data;
 
+typedef struct s_philo_data
+{
+	int			philo_id;
+	t_sim_data	*sim_data;
+	int			first_think_time;
+	pthread_t	thread_id;
+}				t_philo_data;
+
+// init_sim_data.c
+int		print_init_sim_error(int sim_data_field_num, int sim_data_value);
+int		init_sim_data(int argc, char *argv[], t_sim_data *sim_data);
+// exec_sim.c
+int		exec_sim(t_sim_data *sim_data);
+// get_current_time_ms.c
+long	get_current_time_ms(void);
 // philo_atoi.c
 int		check_non_integer(char const *str);
 int		philo_atoi(char const *str);
 // print_error.c
 void	print_error(int error_code);
-// init_sim_data.c
-int		print_init_sim_error(int sim_data_field_num, int sim_data_value);
-int		init_sim_data(int argc, char *argv[], t_sim_data *sim_data);
+// start_philo_routine.c
+void	*start_philo_routine(void *arg);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/02/22 08:24:39 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/02/23 07:48:01 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,13 @@ SRC = \
 			$(SRC_DIR)ft_printf/ft_print_dec.c \
 			$(SRC_DIR)ft_printf/ft_print_hex.c \
 			$(SRC_DIR)ft_printf/ft_printf.c \
-			$(SRC_DIR)main.c \
+			$(SRC_DIR)exec_sim.c \
+			$(SRC_DIR)get_current_time_ms.c \
+			$(SRC_DIR)init_sim_data.c \
 			$(SRC_DIR)philo_atoi.c \
 			$(SRC_DIR)print_error.c \
-			$(SRC_DIR)init_sim_data.c
+			$(SRC_DIR)start_philo_routine.c \
+			$(SRC_DIR)main.c
 
 OBJ =		$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))
 

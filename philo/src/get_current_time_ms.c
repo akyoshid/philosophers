@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_current_time_ms.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 22:30:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/23 07:43:59 by akyoshid         ###   ########.fr       */
+/*   Created: 2025/02/23 07:45:16 by akyoshid          #+#    #+#             */
+/*   Updated: 2025/02/23 07:45:35 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-int	main(int argc, char *argv[])
+long	get_current_time_ms(void)
 {
-	t_sim_data	sim_data;
+	struct timeval	tv;
+	long			current_time;
 
-	if (init_sim_data(argc, argv, &sim_data) != 0)
-		return (PHILO_SYNTAX_ERROR);
-	// init_mutex
-	if (exec_sim(&sim_data) != 0)
-		return (PHILO_GENERAL_ERROR);
-	// clean_up_mutex
-	return (PHILO_SUCCESS);
+	gettimeofday(&tv, NULL);
+	current_time = tv.tv_sec * 1000 + tv.tv_usec / 1000;
+	return (current_time);
 }
