@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/23 11:02:45 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/24 09:00:50 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,9 @@ typedef struct s_philo_data
 void	clean_up_mutex(t_sim_data *sim_data, int fork_count);
 // exec_sim.c
 int		exec_sim(t_sim_data *sim_data);
+// flag.c
+void	stop_sim(t_sim_data *sim_data);
+int		check_flag(t_sim_data *sim_data);
 // get_current_time_ms.c
 long	get_current_time_ms(void);
 // init_mutex.c

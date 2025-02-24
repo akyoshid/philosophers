@@ -6,12 +6,14 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:43:44 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/23 07:43:54 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:11:59 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
+// In `if (philo_data->sim_data->start_time != 0)`,
+// there is no guarantee that stop_flag is false.
 void	*start_philo_routine(void *arg)
 {
 	t_philo_data	*philo_data;
@@ -20,6 +22,8 @@ void	*start_philo_routine(void *arg)
 	while (1)
 	{
 		usleep(100);
+		if (check_flag(philo_data->sim_data) == true)
+			return (NULL);
 		if (philo_data->sim_data->start_time != 0)
 			break ;
 	}

@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:42:42 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/23 12:04:29 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:12:12 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	_create_philos(t_sim_data *sim_data, t_philo_data *philo_data)
 		if (pthread_create(&philo_data[i].thread_id, NULL,
 				start_philo_routine, philo_data + i) != 0)
 		{
-			// stop_flag
+			stop_sim(sim_data);
 			i--;
 			while (i >= 0)
 			{
