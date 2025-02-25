@@ -47,11 +47,11 @@ typedef enum e_sim_data_field_num
 	EAT_LIMIT,
 }	t_sim_data_field_num;
 
-typedef struct s_flag
+typedef struct s_super_flag
 {
-	bool			stop;
+	bool			stop_flag;
 	pthread_mutex_t	m;
-}					t_flag;
+}					t_super_flag;
 
 typedef struct s_fork
 {
@@ -66,7 +66,7 @@ typedef struct s_sim_data
 	int				eat_time;
 	int				sleep_time;
 	int				eat_limit;
-	t_flag			flag;
+	t_super_flag	super_flag;
 	t_fork			fork[PHILO_NUM_LIMIT];
 	long			start_time;
 }					t_sim_data;
@@ -78,7 +78,7 @@ typedef struct s_philo_data
 	t_fork		*first_fork;
 	t_fork		*second_fork;
 	int			first_think_time;
-	long		last_eat_time;
+	long		last_eat_timestamp;
 	pthread_t	thread_id;
 }				t_philo_data;
 
@@ -86,9 +86,6 @@ typedef struct s_philo_data
 void	clean_up_mutex(t_sim_data *sim_data, int fork_count);
 // exec_sim.c
 int		exec_sim(t_sim_data *sim_data);
-// flag.c
-void	stop_sim(t_sim_data *sim_data);
-int		check_flag(t_sim_data *sim_data);
 // get_current_time_ms.c
 long	get_current_time_ms(void);
 // init_mutex.c

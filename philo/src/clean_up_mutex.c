@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 11:00:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/23 11:02:27 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/25 20:21:36 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	clean_up_mutex(t_sim_data *sim_data, int fork_count)
 {
 	int	i;
 
-	pthread_mutex_destroy(&sim_data->flag.m);
+	pthread_mutex_destroy(&sim_data->super_flag.m);
 	i = 0;
 	while (i < fork_count)
 	{

@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:42:42 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/25 16:47:55 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/25 18:47:58 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	_init_philo_data(t_philo_data *philo_data, t_sim_data *sim_data)
 			philo_data[i].second_fork = sim_data->fork + i + 1;
 		}
 		_set_first_think_time(philo_data, sim_data, i);
-		philo_data[i].last_eat_time = 0;
+		philo_data[i].last_eat_timestamp = 0;
 		i++;
 	}
 }
@@ -58,7 +58,7 @@ int	_create_philos(t_sim_data *sim_data, t_philo_data *philo_data)
 		if (pthread_create(&philo_data[i].thread_id, NULL,
 				start_philo_routine, philo_data + i) != 0)
 		{
-			stop_sim(sim_data);
+			sim_data->super_flag.stop_flag = true;
 			i--;
 			while (i >= 0)
 			{

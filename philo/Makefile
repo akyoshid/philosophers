@@ -27,7 +27,6 @@ SRC = \
 			$(SRC_DIR)ft_printf/ft_printf.c \
 			$(SRC_DIR)clean_up_mutex.c \
 			$(SRC_DIR)exec_sim.c \
-			$(SRC_DIR)flag.c \
 			$(SRC_DIR)get_current_time_ms.c \
 			$(SRC_DIR)init_mutex.c \
 			$(SRC_DIR)init_sim_data.c \

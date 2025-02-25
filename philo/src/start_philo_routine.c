@@ -22,12 +22,10 @@ void	*start_philo_routine(void *arg)
 	while (1)
 	{
 		usleep(100);
-		if (check_flag(philo_data->sim_data) == true)
+		if (philo_data->sim_data->super_flag.stop_flag == true)
 			return (NULL);
 		if (philo_data->sim_data->start_time != 0)
 			break ;
 	}
-	printf("philo_id: %d\nfirst_think_time: %d\n",
-		philo_data->philo_id, philo_data->first_think_time);
 	return (NULL);
 }

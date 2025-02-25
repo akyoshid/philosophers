@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 10:59:50 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/23 11:00:09 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/25 20:24:48 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	init_mutex(t_sim_data *sim_data)
 {
 	int	i;
 
-	sim_data->flag.stop = false;
-	if (pthread_mutex_init(&sim_data->flag.m, NULL) != 0)
+	sim_data->super_flag.stop_flag = false;
+	if (pthread_mutex_init(&sim_data->super_flag.m, NULL) != 0)
 	{
 		print_error(ERR_PTHREAD_MUTEX_INIT);
 		return (1);
