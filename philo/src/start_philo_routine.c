@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:43:44 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/25 21:47:46 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/25 23:48:03 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,17 @@ void	*start_philo_routine(void *arg)
 		if (philo_data->sim_data->start_time != 0)
 			break ;
 	}
+	print_log(philo_data, ACTION_THINK, NULL);
 	usleep(philo_data->first_think_time * 1000);
-	if (philo_eat(philo_data) != STATUS_SUCCESS)
-		printf("🔥");
+	// want to use usleep() for a more accurate time
+	while (1)
+	{
+		if (philo_eat(philo_data) == STATUS_STOP)
+			break ;
+		if (philo_sleep(philo_data) == STATUS_STOP)
+			break ;
+		if (print_log(philo_data, ACTION_THINK, NULL) == STATUS_STOP)
+			break ;
+	}
 	return (NULL);
 }

@@ -119,6 +119,8 @@ int		init_sim_data(int argc, char *argv[], t_sim_data *sim_data);
 int		philo_atoi(char const *str);
 // philo_eat.c
 int		philo_eat(t_philo_data *philo_data);
+// philo_sleep.c
+int		philo_sleep(t_philo_data *philo_data);
 // print_error.c
 void	print_error(int error_code);
 // print_log.c

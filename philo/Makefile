@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/02/25 21:48:48 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/02/25 23:46:23 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC = \
 			$(SRC_DIR)init_sim_data.c \
 			$(SRC_DIR)philo_atoi.c \
 			$(SRC_DIR)philo_eat.c \
+			$(SRC_DIR)philo_sleep.c \
 			$(SRC_DIR)print_error.c \
 			$(SRC_DIR)print_log.c \
 			$(SRC_DIR)start_philo_routine.c \
