@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:42:42 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/25 18:47:58 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/25 20:56:47 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ int	exec_sim(t_sim_data *sim_data)
 	if (_create_philos(sim_data, philo_data) != 0)
 		return (1);
 	sim_data->start_time = get_current_time_ms();
-	if (_wait_philos(sim_data, philo_data) != 0)
-		return (1);
+	_wait_philos(sim_data, philo_data);
 	return (0);
 }
