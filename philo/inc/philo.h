@@ -78,6 +78,7 @@ typedef struct s_philo_data
 	t_fork		*first_fork;
 	t_fork		*second_fork;
 	int			first_think_time;
+	long		last_eat_time;
 	pthread_t	thread_id;
 }				t_philo_data;
 

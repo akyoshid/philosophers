@@ -43,6 +43,7 @@ void	_init_philo_data(t_philo_data *philo_data, t_sim_data *sim_data)
 			philo_data[i].second_fork = sim_data->fork + i + 1;
 		}
 		_set_first_think_time(philo_data, sim_data, i);
+		philo_data[i].last_eat_time = 0;
 		i++;
 	}
 }
