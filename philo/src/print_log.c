@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 09:01:23 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/25 22:24:19 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/26 20:45:06 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	print_log(t_philo_data *philo_data, int action, long *timestamp_p)
 		return (pthread_mutex_unlock(&philo_data->sim_data->super_flag.m),
 			STATUS_STOP);
 	else
-		ft_printf("%d %d %s\n", timestamp, philo_data->philo_id, mes);
+		printf("%ld %d %s\n", timestamp / 1000, philo_data->philo_id, mes);
 	pthread_mutex_unlock(&philo_data->sim_data->super_flag.m);
 	if (timestamp_p != NULL)
 		*timestamp_p = timestamp;

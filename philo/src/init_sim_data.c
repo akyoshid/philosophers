@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 05:56:33 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/26 17:46:17 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/26 20:13:34 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ long	_get_think_time(t_sim_data *sim_data)
 	long	think_time;
 
 	if (sim_data->philo_num % 2 == 0)
-		think_time= sim_data->eat_time - sim_data->sleep_time;
+		think_time = sim_data->eat_time - sim_data->sleep_time;
 	else
 		think_time
 			= sim_data->eat_time - sim_data->sleep_time
@@ -60,13 +60,13 @@ int	init_sim_data(int argc, char *argv[], t_sim_data *sim_data)
 	sim_data->philo_num = philo_atoi(argv[1]);
 	if (sim_data->philo_num <= 0 || sim_data->philo_num > PHILO_NUM_LIMIT)
 		return (_print_init_sim_error(PHILO_NUM, sim_data->philo_num));
-	sim_data->die_time = philo_atoi(argv[2]);
+	sim_data->die_time = philo_atoi(argv[2]) * 1000;
 	if (sim_data->die_time <= 0)
 		return (_print_init_sim_error(DIE_TIME, sim_data->die_time));
-	sim_data->eat_time = philo_atoi(argv[3]);
+	sim_data->eat_time = philo_atoi(argv[3]) * 1000;
 	if (sim_data->eat_time <= 0)
 		return (_print_init_sim_error(EAT_TIME, sim_data->eat_time));
-	sim_data->sleep_time = philo_atoi(argv[4]);
+	sim_data->sleep_time = philo_atoi(argv[4]) * 1000;
 	if (sim_data->sleep_time <= 0)
 		return (_print_init_sim_error(SLEEP_TIME, sim_data->sleep_time));
 	if (argc == 6)

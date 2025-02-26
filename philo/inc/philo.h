@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/26 17:48:56 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/26 21:08:13 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@ typedef struct s_fork
 typedef struct s_sim_data
 {
 	int				philo_num;
-	int				die_time;
-	int				eat_time;
-	int				sleep_time;
-	long			think_time;
+	long			die_time;
+	long			eat_time;
+	long			sleep_time;
 	int				eat_limit;
+	long			think_time;
 	t_super_flag	super_flag;
 	t_fork			fork[PHILO_NUM_LIMIT];
 	long			start_time;
@@ -95,7 +95,7 @@ typedef struct s_philo_data
 	t_sim_data	*sim_data;
 	t_fork		*first_fork;
 	t_fork		*second_fork;
-	long		first_think_time_us;
+	long		first_think_time;
 	long		last_eat_timestamp;
 	int			eat_count;
 	pthread_t	thread_id;
@@ -103,7 +103,7 @@ typedef struct s_philo_data
 
 // check_action_status.c
 int		check_action_status(
-			t_philo_data *philo_data, long start_timestamp, int timelimit);
+			t_philo_data *philo_data, long start_timestamp, long timelimit);
 // check_alive.c
 int		check_alive(
 			t_philo_data *philo_data, bool have_super_flag, long timestamp);
@@ -111,8 +111,8 @@ int		check_alive(
 void	clean_up_mutex(t_sim_data *sim_data, int fork_count);
 // exec_sim.c
 int		exec_sim(t_sim_data *sim_data);
-// get_current_time_ms.c
-long	get_current_time_ms(void);
+// get_current_time.c
+long	get_current_time(void);
 long	get_timestamp(t_sim_data *sim_data);
 // init_mutex.c
 int		init_mutex(t_sim_data *sim_data);
@@ -124,6 +124,9 @@ int		philo_atoi(char const *str);
 int		philo_eat(t_philo_data *philo_data);
 // philo_sleep.c
 int		philo_sleep(t_philo_data *philo_data);
+// philo_think.c
+int		philo_think(t_philo_data *philo_data);
+int		philo_first_think(t_philo_data *philo_data);
 // print_error.c
 void	print_error(int error_code);
 // print_log.c

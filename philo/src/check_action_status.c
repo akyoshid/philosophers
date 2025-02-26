@@ -6,14 +6,14 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 21:43:42 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/25 22:07:37 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/26 18:06:39 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
 int	check_action_status(
-	t_philo_data *philo_data, long start_timestamp, int timelimit)
+	t_philo_data *philo_data, long start_timestamp, long timelimit)
 {
 	long	current_timestamp;
 	int		status;

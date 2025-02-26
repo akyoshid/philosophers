@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 20:29:12 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/25 22:23:52 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/26 20:46:02 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	check_alive(t_philo_data *philo_data, bool have_super_flag, long timestamp)
 		>= philo_data->sim_data->die_time)
 	{
 		philo_data->sim_data->super_flag.stop_flag = true;
-		ft_printf("%d %d died\n", timestamp, philo_data->philo_id);
+		printf("%ld %d died\n", timestamp / 1000, philo_data->philo_id);
 		status = STATUS_STOP;
 	}
 	else

@@ -6,32 +6,31 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:42:42 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/26 17:57:51 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/26 20:39:05 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-void	_set_first_think_time_us(
+void	_set_first_think_time(
 	t_philo_data *philo_data, t_sim_data *sim_data, int i)
 {
 	if (sim_data->philo_num % 2 == 0)
 	{
 		if (i % 2 == 0)
-			philo_data[i].first_think_time_us = 0;
+			philo_data[i].first_think_time = 0;
 		else
-			philo_data[i].first_think_time_us = sim_data->eat_time * 1000;
+			philo_data[i].first_think_time = sim_data->eat_time;
 	}
 	else
 	{
 		if (i % 2 == 0)
-			philo_data[i].first_think_time_us
-				= (sim_data->eat_time * 1000) * (i / 2)
-					/ (sim_data->philo_num / 2);
+			philo_data[i].first_think_time
+				= sim_data->eat_time * (i / 2) / (sim_data->philo_num / 2);
 		else
-			philo_data[i].first_think_time_us
-				= (sim_data->eat_time * 1000) * ((i + 1) / 2)
-					/ (sim_data->philo_num / 2) + (sim_data->eat_time * 1000);
+			philo_data[i].first_think_time
+				= sim_data->eat_time * ((i + 1) / 2)
+					/ (sim_data->philo_num / 2) + sim_data->eat_time;
 	}
 }
 
@@ -54,7 +53,7 @@ void	_init_philo_data(t_philo_data *philo_data, t_sim_data *sim_data)
 			philo_data[i].first_fork = sim_data->fork + i;
 			philo_data[i].second_fork = sim_data->fork + i + 1;
 		}
-		_set_first_think_time_us(philo_data, sim_data, i);
+		_set_first_think_time(philo_data, sim_data, i);
 		philo_data[i].last_eat_timestamp = 0;
 		philo_data[i].eat_count = 0;
 		i++;
@@ -107,7 +106,7 @@ int	exec_sim(t_sim_data *sim_data)
 	_init_philo_data(philo_data, sim_data);
 	if (_create_philos(sim_data, philo_data) != 0)
 		return (1);
-	sim_data->start_time = get_current_time_ms();
+	sim_data->start_time = get_current_time();
 	_wait_philos(sim_data, philo_data);
 	return (0);
 }
