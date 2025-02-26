@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:42:42 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/25 20:56:47 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/25 22:48:48 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	_init_philo_data(t_philo_data *philo_data, t_sim_data *sim_data)
 		}
 		_set_first_think_time(philo_data, sim_data, i);
 		philo_data[i].last_eat_timestamp = 0;
+		philo_data[i].eat_count = 0;
 		i++;
 	}
 }

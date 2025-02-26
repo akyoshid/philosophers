@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/25 22:08:57 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/25 23:46:12 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ enum e_status
 typedef struct s_super_flag
 {
 	bool			stop_flag;
+	int				philo_count_reached_eat_limit;
 	pthread_mutex_t	m;
 }					t_super_flag;
 
@@ -95,6 +96,7 @@ typedef struct s_philo_data
 	t_fork		*second_fork;
 	int			first_think_time;
 	long		last_eat_timestamp;
+	int			eat_count;
 	pthread_t	thread_id;
 }				t_philo_data;
 
