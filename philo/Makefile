@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/02/26 21:08:38 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/02/26 22:12:32 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC = \
 			$(SRC_DIR)ft_printf/ft_printf.c \
 			$(SRC_DIR)check_action_status.c \
 			$(SRC_DIR)check_alive.c \
+			$(SRC_DIR)check_eat_count.c \
 			$(SRC_DIR)clean_up_mutex.c \
 			$(SRC_DIR)exec_sim.c \
 			$(SRC_DIR)get_current_time.c \

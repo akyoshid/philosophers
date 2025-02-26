@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/26 21:08:13 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/26 22:12:22 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,8 @@ int		check_action_status(
 // check_alive.c
 int		check_alive(
 			t_philo_data *philo_data, bool have_super_flag, long timestamp);
+// check_eat_count.c
+int		check_eat_count(t_philo_data *philo_data, t_sim_data *sim_data);
 // clean_up_mutex.c
 void	clean_up_mutex(t_sim_data *sim_data, int fork_count);
 // exec_sim.c
@@ -122,6 +124,7 @@ int		init_sim_data(int argc, char *argv[], t_sim_data *sim_data);
 int		philo_atoi(char const *str);
 // philo_eat.c
 int		philo_eat(t_philo_data *philo_data);
+void	solo_philo_take_fork_and_die(t_philo_data *philo_data);
 // philo_sleep.c
 int		philo_sleep(t_philo_data *philo_data);
 // philo_think.c

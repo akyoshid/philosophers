@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:43:44 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/26 21:01:32 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/26 22:13:08 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	*start_philo_routine(void *arg)
 	}
 	if (philo_first_think(philo_data) == STATUS_STOP)
 		return (NULL);
+	if (philo_data->sim_data->philo_num == 1)
+		return (solo_philo_take_fork_and_die(philo_data), NULL);
 	while (1)
 	{
 		if (philo_eat(philo_data) == STATUS_STOP)

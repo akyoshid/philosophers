@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 21:47:48 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/26 11:08:56 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/26 22:12:49 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,27 +60,6 @@ int	_take_forks(t_philo_data *philo_data)
 	return (STATUS_SUCCESS);
 }
 
-int	_check_eat_count(t_philo_data *philo_data, t_sim_data *sim_data)
-{
-	int	status;
-
-	status = STATUS_SUCCESS;
-	philo_data->eat_count++;
-	if (sim_data->eat_limit == philo_data->eat_count)
-	{
-		pthread_mutex_lock(&sim_data->super_flag.m);
-		sim_data->super_flag.philo_count_reached_eat_limit++;
-		if (sim_data->super_flag.philo_count_reached_eat_limit
-			== sim_data->philo_num)
-		{
-			sim_data->super_flag.stop_flag = true;
-			status = STATUS_STOP;
-		}
-		pthread_mutex_unlock(&philo_data->sim_data->super_flag.m);
-	}
-	return (status);
-}
-
 int	philo_eat(t_philo_data *philo_data)
 {
 	int		status;
@@ -100,6 +79,16 @@ int	philo_eat(t_philo_data *philo_data)
 	_put_fork(philo_data->second_fork);
 	_put_fork(philo_data->first_fork);
 	if (status == STATUS_SUCCESS && philo_data->sim_data->eat_limit != 0)
-		status = _check_eat_count(philo_data, philo_data->sim_data);
+		status = check_eat_count(philo_data, philo_data->sim_data);
 	return (status);
+}
+
+void	solo_philo_take_fork_and_die(t_philo_data *philo_data)
+{
+	if (_take_fork(philo_data->first_fork, philo_data) == STATUS_STOP)
+		return ;
+	while (check_alive(philo_data, false, 0) != STATUS_STOP)
+		usleep(100);
+	_put_fork(philo_data->first_fork);
+	return ;
 }
