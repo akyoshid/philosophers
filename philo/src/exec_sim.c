@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:42:42 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/26 20:39:05 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/26 22:18:17 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	_set_first_think_time(
 		else
 			philo_data[i].first_think_time
 				= sim_data->eat_time * ((i + 1) / 2)
-					/ (sim_data->philo_num / 2) + sim_data->eat_time;
+				/ (sim_data->philo_num / 2) + sim_data->eat_time;
 	}
 }
 

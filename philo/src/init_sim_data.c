@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 05:56:33 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/26 20:13:34 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/26 22:18:33 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ long	_get_think_time(t_sim_data *sim_data)
 	else
 		think_time
 			= sim_data->eat_time - sim_data->sleep_time
-				+ sim_data->eat_time / (sim_data->philo_num / 2);
+			+ sim_data->eat_time / (sim_data->philo_num / 2);
 	if (think_time >= 0)
 		return (think_time);
 	else
