@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/25 23:46:12 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:48:56 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ typedef struct s_sim_data
 	int				die_time;
 	int				eat_time;
 	int				sleep_time;
+	long			think_time;
 	int				eat_limit;
 	t_super_flag	super_flag;
 	t_fork			fork[PHILO_NUM_LIMIT];
@@ -94,7 +95,7 @@ typedef struct s_philo_data
 	t_sim_data	*sim_data;
 	t_fork		*first_fork;
 	t_fork		*second_fork;
-	int			first_think_time;
+	long		first_think_time_us;
 	long		last_eat_timestamp;
 	int			eat_count;
 	pthread_t	thread_id;

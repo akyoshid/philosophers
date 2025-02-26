@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 05:56:33 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/23 07:55:10 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:46:17 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,22 @@ int	_print_init_sim_error(int sim_data_field_num, int sim_data_value)
 	return (PHILO_SYNTAX_ERROR);
 }
 
+long	_get_think_time(t_sim_data *sim_data)
+{
+	long	think_time;
+
+	if (sim_data->philo_num % 2 == 0)
+		think_time= sim_data->eat_time - sim_data->sleep_time;
+	else
+		think_time
+			= sim_data->eat_time - sim_data->sleep_time
+				+ sim_data->eat_time / (sim_data->philo_num / 2);
+	if (think_time >= 0)
+		return (think_time);
+	else
+		return (0);
+}
+
 int	init_sim_data(int argc, char *argv[], t_sim_data *sim_data)
 {
 	if (argc < 5 || argc > 6)
@@ -61,6 +77,7 @@ int	init_sim_data(int argc, char *argv[], t_sim_data *sim_data)
 	}
 	else
 		sim_data->eat_limit = 0;
+	sim_data->think_time = _get_think_time(sim_data);
 	sim_data->start_time = 0;
 	return (0);
 }
