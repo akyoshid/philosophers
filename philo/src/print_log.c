@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 09:01:23 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/26 20:45:06 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/27 11:18:21 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	*_get_log_message(int action)
 {
 	char	*mes;
 
+	mes = "";
 	if (action == ACTION_TAKE_FORK)
 		mes = "has taken a fork";
 	else if (action == ACTION_EAT)
