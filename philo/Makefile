@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/02/27 00:15:33 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/02/27 10:24:12 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,8 @@ OBJ_DIR =	obj/
 
 INC = \
 			$(INC_DIR)philo.h \
-			$(INC_DIR)ft_printf.h
 
 SRC = \
-			$(SRC_DIR)ft_printf/ft_print_char.c \
-			$(SRC_DIR)ft_printf/ft_print_dec.c \
-			$(SRC_DIR)ft_printf/ft_print_hex.c \
-			$(SRC_DIR)ft_printf/ft_printf.c \
 			$(SRC_DIR)before_start_sim_utils.c \
 			$(SRC_DIR)check_action_status.c \
 			$(SRC_DIR)check_alive.c \

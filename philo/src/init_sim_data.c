@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 05:56:33 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/26 22:18:33 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/27 10:20:04 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int	_print_init_sim_error(int sim_data_field_num, int sim_data_value)
 	else if (sim_data_field_num == EAT_LIMIT)
 		str = "number_of_times_each_philosopher_must_eat";
 	if (sim_data_value == -2)
-		ft_dprintf(2, "philo: %s: non-integer argument\n"
+		printf("philo: %s: non-integer argument\n"
 			"Usage: ./philo number_of_philosophers time_to_die time_to_eat "
 			"time_to_sleep [number_of_times_each_philosopher_must_eat]\n", str);
 	else
-		ft_dprintf(2, "philo: %s: invaild argument\n"
+		printf("philo: %s: invaild argument\n"
 			"Usage: ./philo number_of_philosophers time_to_die time_to_eat "
 			"time_to_sleep [number_of_times_each_philosopher_must_eat]\n", str);
 	return (PHILO_SYNTAX_ERROR);

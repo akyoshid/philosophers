@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/27 00:16:19 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/27 10:26:42 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <sys/time.h>
 # include <pthread.h>
 # include <stdbool.h>
-# include "ft_printf.h"
+# include <limits.h>
 
 # define PHILO_NUM_LIMIT 200
 

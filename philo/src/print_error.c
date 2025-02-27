@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 05:51:53 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/23 10:53:44 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/27 10:19:37 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	print_error(int error_code)
 {
 	if (error_code == ERR_ARGC)
 	{
-		ft_dprintf(2,
+		printf(
 			"philo: invalid number of arguments\n"
 			"Usage: ./philo number_of_philosophers time_to_die time_to_eat "
 			"time_to_sleep [number_of_times_each_philosopher_must_eat]\n");
 	}
 	else if (error_code == ERR_PTHREAD_CREATE)
-		ft_dprintf(2, "philo: pthread_create faild\n");
+		printf("philo: pthread_create faild\n");
 	else if (error_code == ERR_PTHREAD_MUTEX_INIT)
-		ft_dprintf(2, "philo: pthread_mutex_init faild\n");
+		printf("philo: pthread_mutex_init faild\n");
 }
