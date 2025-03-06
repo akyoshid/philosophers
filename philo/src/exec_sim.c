@@ -103,7 +103,7 @@ int	_wait_philos(t_sim_data *sim_data, t_philo_data *philo_data)
 
 int	exec_sim(t_sim_data *sim_data)
 {
-	t_philo_data	philo_data[200];
+	t_philo_data	philo_data[PHILO_NUM_LIMIT];
 
 	_init_philo_data(philo_data, sim_data);
 	if (_create_philos(sim_data, philo_data) != 0)
