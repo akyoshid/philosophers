@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:42:42 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/27 00:13:01 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/06 09:07:58 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 void	_set_first_think_time(
 	t_philo_data *philo_data, t_sim_data *sim_data, int i)
 {
-	if (sim_data->philo_num % 2 == 0)
+	if (sim_data->philo_num == 1)
+		philo_data[i].first_think_time = 0;
+	else if (sim_data->philo_num % 2 == 0)
 	{
 		if (i % 2 == 0)
 			philo_data[i].first_think_time = 0;
