@@ -6,18 +6,18 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/02/27 10:24:12 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/03/07 07:27:36 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		philo
+NAME =		philo_bonus
 
 INC_DIR =	inc/
 SRC_DIR =	src/
 OBJ_DIR =	obj/
 
 INC = \
-			$(INC_DIR)philo.h \
+			$(INC_DIR)philo_bonus.h \
 
 SRC = \
 			$(SRC_DIR)before_start_sim_utils.c \

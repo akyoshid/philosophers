@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 21:47:48 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/26 22:12:49 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/07 07:25:13 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo.h"
+#include "../inc/philo_bonus.h"
 
 void	_put_fork(t_fork *fork)
 {

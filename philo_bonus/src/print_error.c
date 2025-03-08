@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 05:51:53 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/27 10:19:37 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/07 07:25:24 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo.h"
+#include "../inc/philo_bonus.h"
 
 void	print_error(int error_code)
 {

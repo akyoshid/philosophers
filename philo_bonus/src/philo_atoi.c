@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 14:51:09 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/23 07:55:23 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/07 07:25:09 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // If it contains non-numeric characters, return -2.
 // If it was a negative number or bigger than INT_MAX, return -1.
 
-#include "../inc/philo.h"
+#include "../inc/philo_bonus.h"
 
 int	_check_non_integer(char const *str)
 {

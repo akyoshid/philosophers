@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 05:56:33 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/06 09:08:56 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/07 07:24:54 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo.h"
+#include "../inc/philo_bonus.h"
 
 int	_print_init_sim_error(int sim_data_field_num, int sim_data_value)
 {

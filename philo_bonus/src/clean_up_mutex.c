@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 11:00:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/25 20:21:36 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/07 07:24:37 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo.h"
+#include "../inc/philo_bonus.h"
 
 void	clean_up_mutex(t_sim_data *sim_data, int fork_count)
 {

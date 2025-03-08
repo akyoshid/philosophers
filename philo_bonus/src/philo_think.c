@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 21:01:20 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/26 21:02:18 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/07 07:25:20 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo.h"
+#include "../inc/philo_bonus.h"
 
 // A philosopher continues thinking until they acquire two forks.
 // While thinking, a philosopher may die of starvation.

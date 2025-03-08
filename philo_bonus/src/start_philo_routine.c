@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:43:44 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/27 00:34:09 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/07 07:25:32 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo.h"
+#include "../inc/philo_bonus.h"
 
 void	_philo_routine(t_philo_data *philo_data)
 {

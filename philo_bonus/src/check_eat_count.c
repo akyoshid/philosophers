@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 22:11:05 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/26 22:11:23 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/07 07:24:34 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo.h"
+#include "../inc/philo_bonus.h"
 
 int	check_eat_count(t_philo_data *philo_data, t_sim_data *sim_data)
 {

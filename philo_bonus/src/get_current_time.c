@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:45:16 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/26 20:38:21 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/07 07:24:45 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo.h"
+#include "../inc/philo_bonus.h"
 
 long	get_current_time(void)
 {

@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 10:59:50 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/26 23:31:24 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/07 07:24:48 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo.h"
+#include "../inc/philo_bonus.h"
 
 int	init_mutex(t_sim_data *sim_data)
 {
