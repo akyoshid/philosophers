@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/08 20:50:11 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/08 20:59:37 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,6 @@ typedef struct s_philo_data
 	pid_t		pid;
 }				t_philo_data;
 
-// before_start_sim_utils.c
-int		check_super_flag(t_sim_data *sim_data);
 // check_action_status.c
 int		check_action_status(
 			t_philo_data *philo_data, long start_timestamp, long timelimit);
@@ -151,6 +149,6 @@ void	print_error(int error_code);
 // print_log.c
 int		print_log(t_philo_data *philo_data, int action, long *timestamp_p);
 // start_philo_routine.c
-void	*start_philo_routine(void *arg);
+void	start_philo_routine(t_sim_data *sim_data, t_philo_data *philo_data);
 
 #endif
