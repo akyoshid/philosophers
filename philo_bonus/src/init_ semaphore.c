@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_mutex.c                                       :+:      :+:    :+:   */
+/*   init_ semaphore.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 10:59:50 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/07 07:24:48 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/08 16:48:52 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo_bonus.h"
 
-int	init_mutex(t_sim_data *sim_data)
+int	init_semaphore(t_sim_data *sim_data)
 {
-	int	i;
-
 	sim_data->super_flag.start_flag = false;
 	sim_data->super_flag.stop_flag = false;
 	sim_data->super_flag.philo_count_reached_eat_limit = 0;
-	if (pthread_mutex_init(&sim_data->super_flag.m, NULL) != 0)
+	sim_data->super_flag.s = sem_open("super_flag", O_CREAT | O_EXCL, 0666, 1);
+	if (sim_data->super_flag.s == SEM_FAILED)
 	{
-		print_error(ERR_PTHREAD_MUTEX_INIT);
+		print_error(ERR_SEM_OPEN);
 		return (1);
 	}
-	i = 0;
-	while (i < sim_data->philo_num)
+	sim_data->fork.s = sem_open(
+			"fork", O_CREAT | O_EXCL, 0666, sim_data->philo_num);
+	if (sim_data->fork.s == SEM_FAILED)
 	{
-		sim_data->fork[i].last_user_num = 0;
-		if (pthread_mutex_init(&sim_data->fork[i].m, NULL) != 0)
-		{
-			clean_up_mutex(sim_data, i);
-			print_error(ERR_PTHREAD_MUTEX_INIT);
-			return (1);
-		}
-		i++;
+		sem_unlink(sim_data->super_flag.s);
+		sem_close(sim_data->super_flag.s);
+		print_error(ERR_SEM_OPEN);
+		return (1);
 	}
 	return (0);
 }

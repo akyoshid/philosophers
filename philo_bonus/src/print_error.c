@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 05:51:53 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/07 07:25:24 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/08 16:33:00 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	print_error(int error_code)
 	}
 	else if (error_code == ERR_PTHREAD_CREATE)
 		printf("philo: pthread_create faild\n");
-	else if (error_code == ERR_PTHREAD_MUTEX_INIT)
-		printf("philo: pthread_mutex_init faild\n");
+	else if (error_code == ERR_SEM_OPEN)
+		printf("philo: sem_open faild\n");
 }

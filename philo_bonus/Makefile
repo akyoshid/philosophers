@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/03/07 07:27:36 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/03/08 16:12:21 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRC = \
 			$(SRC_DIR)clean_up_mutex.c \
 			$(SRC_DIR)exec_sim.c \
 			$(SRC_DIR)get_current_time.c \
-			$(SRC_DIR)init_mutex.c \
+			$(SRC_DIR)init_semaphore.c \
 			$(SRC_DIR)init_sim_data.c \
 			$(SRC_DIR)philo_atoi.c \
 			$(SRC_DIR)philo_eat.c \

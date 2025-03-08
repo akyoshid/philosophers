@@ -21,6 +21,8 @@
 # include <pthread.h>
 # include <stdbool.h>
 # include <limits.h>
+# include <semaphore.h>
+# include <fcntl.h>
 
 # define PHILO_NUM_LIMIT 200
 
@@ -35,7 +37,7 @@ enum e_error_code
 {
 	ERR_ARGC,
 	ERR_PTHREAD_CREATE,
-	ERR_PTHREAD_MUTEX_INIT,
+	ERR_SEM_OPEN,
 };
 
 enum e_sim_data_field_num
@@ -65,17 +67,16 @@ enum e_status
 
 typedef struct s_super_flag
 {
-	bool			start_flag;
-	bool			stop_flag;
-	int				philo_count_reached_eat_limit;
-	pthread_mutex_t	m;
-}					t_super_flag;
+	bool	start_flag;
+	bool	stop_flag;
+	int		philo_count_reached_eat_limit;
+	sem_t	*s;
+}			t_super_flag;
 
 typedef struct s_fork
 {
-	int				last_user_num;
-	pthread_mutex_t	m;
-}					t_fork;
+	sem_t	*s;
+}			t_fork;
 
 typedef struct s_sim_data
 {
@@ -84,9 +85,8 @@ typedef struct s_sim_data
 	long			eat_time;
 	long			sleep_time;
 	int				eat_limit;
-	long			think_time;
 	t_super_flag	super_flag;
-	t_fork			fork[PHILO_NUM_LIMIT];
+	t_fork			fork;
 	long			start_time;
 }					t_sim_data;
 
@@ -121,8 +121,8 @@ int		exec_sim(t_sim_data *sim_data);
 // get_current_time.c
 long	get_current_time(void);
 long	get_timestamp(t_sim_data *sim_data);
-// init_mutex.c
-int		init_mutex(t_sim_data *sim_data);
+// init_semaphore.c
+int		init_semaphore(t_sim_data *sim_data);
 // init_sim_data.c
 int		init_sim_data(int argc, char *argv[], t_sim_data *sim_data);
 // philo_atoi.c
