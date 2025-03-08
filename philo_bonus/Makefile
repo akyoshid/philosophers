@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/03/08 17:54:41 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/03/08 20:49:40 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC = \
 			$(SRC_DIR)check_alive.c \
 			$(SRC_DIR)check_eat_count.c \
 			$(SRC_DIR)clean_up_semaphore.c \
+			$(SRC_DIR)exec_sim_utils.c \
 			$(SRC_DIR)exec_sim.c \
 			$(SRC_DIR)ft_strncpy.c \
 			$(SRC_DIR)get_current_time.c \

@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/08 20:29:31 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/08 20:50:11 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,6 @@ typedef struct s_philo_data
 
 // before_start_sim_utils.c
 int		check_super_flag(t_sim_data *sim_data);
-void	start_sim(t_sim_data *sim_data);
 // check_action_status.c
 int		check_action_status(
 			t_philo_data *philo_data, long start_timestamp, long timelimit);
@@ -121,6 +120,11 @@ int		check_alive(
 int		check_eat_count(t_philo_data *philo_data, t_sim_data *sim_data);
 // clean_up_semaphore.c
 void	clean_up_semaphore(t_sim_data *sim_data, int philo_count);
+// exec_sim_utils.c
+void	kill_philos(t_sim_data *sim_data, int philo_count);
+int		waitpid_philos(t_sim_data *sim_data, int philo_count);
+void	start_sim(t_sim_data *sim_data);
+void	wait_sim(t_sim_data *sim_data);
 // exec_sim.c
 int		exec_sim(t_sim_data *sim_data);
 // ft_strncpy.c
