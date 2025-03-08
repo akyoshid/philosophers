@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   clean_up_semaphore.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 22:30:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/08 20:34:04 by akyoshid         ###   ########.fr       */
+/*   Created: 2025/02/23 11:00:17 by akyoshid          #+#    #+#             */
+/*   Updated: 2025/03/08 17:54:53 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo_bonus.h"
 
-int	main(int argc, char *argv[])
+void	clean_up_semaphore(t_sim_data *sim_data, int philo_count)
 {
-	t_sim_data	sim_data;
+	int	i;
 
-	if (init_sim_data(argc, argv, &sim_data) != 0)
-		return (PHILO_SYNTAX_ERROR);
-	if (init_semaphore(&sim_data) != 0)
-		return (PHILO_GENERAL_ERROR);
-	if (exec_sim(&sim_data) != 0)
-		return (PHILO_GENERAL_ERROR);
-	clean_up_semaphore(&sim_data, sim_data.philo_num);
-	return (PHILO_SUCCESS);
+	sem_close(sim_data->super_flag.s);
+	sem_close(sim_data->fork.s);
+	i = 0;
+	while (i < philo_count)
+	{
+		sem_close(sim_data->philo_data[i].last_eat_timestamp.s);
+		i++;
+	}
 }

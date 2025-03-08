@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 23:26:44 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/07 07:24:16 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/08 20:39:46 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,10 @@ int	check_super_flag(t_sim_data *sim_data)
 	return (status);
 }
 
-void	cancel_sim(t_sim_data *sim_data)
-{
-	pthread_mutex_lock(&sim_data->super_flag.m);
-	sim_data->super_flag.stop_flag = true;
-	pthread_mutex_unlock(&sim_data->super_flag.m);
-}
-
 void	start_sim(t_sim_data *sim_data)
 {
-	pthread_mutex_lock(&sim_data->super_flag.m);
+	sem_wait(sim_data->super_flag.s);
 	sim_data->super_flag.start_flag = true;
 	sim_data->start_time = get_current_time();
-	pthread_mutex_unlock(&sim_data->super_flag.m);
+	sem_post(&sim_data->super_flag.s);
 }

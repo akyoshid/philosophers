@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/06 09:45:32 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/08 20:29:31 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <limits.h>
 # include <semaphore.h>
 # include <fcntl.h>
+# include <signal.h>
+# include <sys/wait.h>
 
 # define PHILO_NUM_LIMIT 200
 
@@ -38,6 +40,7 @@ enum e_error_code
 	ERR_ARGC,
 	ERR_PTHREAD_CREATE,
 	ERR_SEM_OPEN,
+	ERR_FORK,
 };
 
 enum e_sim_data_field_num
@@ -78,6 +81,12 @@ typedef struct s_fork
 	sem_t	*s;
 }			t_fork;
 
+typedef struct s_timestamp
+{
+	long	timestamp;
+	sem_t	*s;
+}			t_timestamp;
+
 typedef struct s_sim_data
 {
 	int				philo_num;
@@ -87,24 +96,20 @@ typedef struct s_sim_data
 	int				eat_limit;
 	t_super_flag	super_flag;
 	t_fork			fork;
+	t_philo_data	philo_data[PHILO_NUM_LIMIT];
 	long			start_time;
 }					t_sim_data;
 
 typedef struct s_philo_data
 {
 	int			philo_id;
-	t_sim_data	*sim_data;
-	t_fork		*first_fork;
-	t_fork		*second_fork;
-	long		first_think_time;
-	long		last_eat_timestamp;
+	t_timestamp	last_eat_timestamp;
 	int			eat_count;
-	pthread_t	thread_id;
+	pid_t		pid;
 }				t_philo_data;
 
 // before_start_sim_utils.c
 int		check_super_flag(t_sim_data *sim_data);
-void	cancel_sim(t_sim_data *sim_data);
 void	start_sim(t_sim_data *sim_data);
 // check_action_status.c
 int		check_action_status(
@@ -114,10 +119,12 @@ int		check_alive(
 			t_philo_data *philo_data, bool have_super_flag, long timestamp);
 // check_eat_count.c
 int		check_eat_count(t_philo_data *philo_data, t_sim_data *sim_data);
-// clean_up_mutex.c
-void	clean_up_mutex(t_sim_data *sim_data, int fork_count);
+// clean_up_semaphore.c
+void	clean_up_semaphore(t_sim_data *sim_data, int philo_count);
 // exec_sim.c
 int		exec_sim(t_sim_data *sim_data);
+// ft_strncpy.c
+char	*ft_strncpy(char *dest, char *src, unsigned int n);
 // get_current_time.c
 long	get_current_time(void);
 long	get_timestamp(t_sim_data *sim_data);

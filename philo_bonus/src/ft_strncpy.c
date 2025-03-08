@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean_up_mutex.c                                   :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/23 11:00:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/07 07:24:37 by akyoshid         ###   ########.fr       */
+/*   Created: 2023/08/15 22:17:29 by akyoshid          #+#    #+#             */
+/*   Updated: 2025/01/13 12:32:02 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo_bonus.h"
-
-void	clean_up_mutex(t_sim_data *sim_data, int fork_count)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
-	pthread_mutex_destroy(&sim_data->super_flag.m);
 	i = 0;
-	while (i < fork_count)
+	while ((i < n) && (src[i] != '\0'))
 	{
-		pthread_mutex_destroy(&sim_data->fork[i].m);
+		dest[i] = src[i];
 		i++;
 	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }
