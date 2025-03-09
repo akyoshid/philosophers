@@ -121,7 +121,7 @@ typedef struct s_sim_data
 int		check_action_status(
 			t_philo_data *philo_data, long start_timestamp, long timelimit);
 // check_alive.c
-int		check_alive(
+int		check_alive(t_sim_data *sim_data,
 			t_philo_data *philo_data, bool have_super_flag, long timestamp);
 // check_eat_count.c
 int		check_eat_count(t_philo_data *philo_data, t_sim_data *sim_data);
@@ -151,12 +151,12 @@ void	solo_philo_take_fork_and_die(t_philo_data *philo_data);
 // philo_sleep.c
 int		philo_sleep(t_philo_data *philo_data);
 // philo_think.c
-int		philo_think(t_philo_data *philo_data);
-int		philo_first_think(t_philo_data *philo_data);
+int		philo_think(t_sim_data *sim_data, t_philo_data *philo_data);
 // print_error.c
 void	print_error(int error_code);
 // print_log.c
-int		print_log(t_philo_data *philo_data, int action, long *timestamp_p);
+int		print_log(t_sim_data *sim_data,
+			t_philo_data *philo_data, int action, long *timestamp_p);
 // start_routine.c
 void	start_philo_routine(t_sim_data *sim_data, t_philo_data *philo_data);
 void	start_waiter_routine(t_sim_data *sim_data, t_philo_data *philo_data);

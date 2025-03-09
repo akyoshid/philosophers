@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 09:01:23 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/07 07:25:27 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/09 22:18:40 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,22 @@ char	*_get_log_message(int action)
 }
 
 // Store the output timestamp in *timestamp_p
-int	print_log(t_philo_data *philo_data, int action, long *timestamp_p)
+int	print_log(t_sim_data *sim_data,
+		t_philo_data *philo_data, int action, long *timestamp_p)
 {
 	char	*mes;
 	long	timestamp;
 
 	mes = _get_log_message(action);
-	pthread_mutex_lock(&philo_data->sim_data->super_flag.m);
-	timestamp = get_timestamp(philo_data->sim_data);
+	sem_wait(sim_data->super_flag.s);
+	timestamp = get_timestamp(sim_data);
 	if (action == ACTION_EAT)
 		philo_data->last_eat_timestamp = timestamp;
-	if (check_alive(philo_data, true, timestamp) == STATUS_STOP)
-		return (pthread_mutex_unlock(&philo_data->sim_data->super_flag.m),
-			STATUS_STOP);
+	if (check_alive(sim_data, philo_data, true, timestamp) == STATUS_STOP)
+		return (sem_post(sim_data->super_flag.s), STATUS_STOP);
 	else
 		printf("%ld %d %s\n", timestamp / 1000, philo_data->philo_id, mes);
-	pthread_mutex_unlock(&philo_data->sim_data->super_flag.m);
+	sem_post(sim_data->super_flag.s);
 	if (timestamp_p != NULL)
 		*timestamp_p = timestamp;
 	return (STATUS_SUCCESS);
