@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/03/09 10:24:41 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/03/09 20:19:22 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ INC = \
 			$(INC_DIR)philo_bonus.h \
 
 SRC = \
-			$(SRC_DIR)before_start_sim_utils.c \
 			$(SRC_DIR)check_action_status.c \
 			$(SRC_DIR)check_alive.c \
 			$(SRC_DIR)check_eat_count.c \
