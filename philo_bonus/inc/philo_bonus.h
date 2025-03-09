@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/08 20:59:37 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/09 10:37:45 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,11 @@ typedef struct s_fork
 	sem_t	*s;
 }			t_fork;
 
-typedef struct s_timestamp
+typedef struct s_eat_flag
 {
-	long	timestamp;
+	bool	f;
 	sem_t	*s;
-}			t_timestamp;
+}			t_eat_flag;
 
 typedef struct s_sim_data
 {
@@ -97,14 +97,16 @@ typedef struct s_sim_data
 	t_super_flag	super_flag;
 	t_fork			fork;
 	t_philo_data	philo_data[PHILO_NUM_LIMIT];
+	pid_t			waiter_pid;
 	long			start_time;
 }					t_sim_data;
 
 typedef struct s_philo_data
 {
 	int			philo_id;
-	t_timestamp	last_eat_timestamp;
+	long		last_eat_timestamp;
 	int			eat_count;
+	t_eat_flag	eat_flag;
 	pid_t		pid;
 }				t_philo_data;
 
@@ -148,7 +150,8 @@ int		philo_first_think(t_philo_data *philo_data);
 void	print_error(int error_code);
 // print_log.c
 int		print_log(t_philo_data *philo_data, int action, long *timestamp_p);
-// start_philo_routine.c
+// start_routine.c
 void	start_philo_routine(t_sim_data *sim_data, t_philo_data *philo_data);
+void	start_waiter_routine(t_sim_data *sim_data, t_philo_data *philo_data);
 
 #endif

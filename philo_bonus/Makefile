@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/03/08 20:49:40 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/03/09 10:24:41 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ SRC = \
 			$(SRC_DIR)philo_think.c \
 			$(SRC_DIR)print_error.c \
 			$(SRC_DIR)print_log.c \
-			$(SRC_DIR)start_philo_routine.c \
+			$(SRC_DIR)start_routine.c \
 			$(SRC_DIR)main.c
 
 OBJ =		$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))

@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 20:45:12 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/08 20:47:56 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/09 10:19:56 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,6 @@ void	wait_sim(t_sim_data *sim_data)
 	wait_pid(-1, NULL, 0);
 	kill_philos(sim_data, sim_data->philo_num);
 	waitpid_philos(sim_data, sim_data->philo_num);
+	kill(sim_data->waiter_pid, SIGTERM);
+	waitpid(sim_data->waiter_pid, NULL, 0);
 }

@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 11:00:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/08 17:54:53 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/09 10:35:17 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	clean_up_semaphore(t_sim_data *sim_data, int philo_count)
 	i = 0;
 	while (i < philo_count)
 	{
-		sem_close(sim_data->philo_data[i].last_eat_timestamp.s);
+		sem_close(sim_data->philo_data[i].eat_flag.s);
 		i++;
 	}
 }
