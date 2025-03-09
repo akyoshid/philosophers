@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 20:45:12 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/09 10:19:56 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/09 20:15:58 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ void	start_sim(t_sim_data *sim_data)
 	sem_wait(sim_data->super_flag.s);
 	sim_data->super_flag.start_flag = true;
 	sim_data->start_time = get_current_time();
-	sem_post(&sim_data->super_flag.s);
+	sem_post(sim_data->super_flag.s);
 }
 
 void	wait_sim(t_sim_data *sim_data)
 {
-	wait_pid(-1, NULL, 0);
+	waitpid(-1, NULL, 0);
 	kill_philos(sim_data, sim_data->philo_num);
 	waitpid_philos(sim_data, sim_data->philo_num);
 	kill(sim_data->waiter_pid, SIGTERM);

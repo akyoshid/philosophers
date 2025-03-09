@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:42:42 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/09 11:02:38 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/09 11:08:29 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	_create_philos(t_sim_data *sim_data, t_philo_data *philo_data)
 		else if (sim_data->philo_data[i].pid == 0)
 		{
 			start_philo_routine(sim_data, philo_data + i);
-			exit(1);
+			exit(0);
 		}
 		i++;
 	}
@@ -79,10 +79,7 @@ int	_create_waiter(t_sim_data *sim_data, t_philo_data *philo_data)
 		return (1);
 	}
 	else if (sim_data->waiter_pid == 0)
-	{
 		start_waiter_routine(sim_data, philo_data);
-		exit(1);
-	}
 	return (0);
 }
 
