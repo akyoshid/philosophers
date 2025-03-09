@@ -81,25 +81,17 @@ typedef struct s_fork
 	sem_t	*s;
 }			t_fork;
 
+typedef struct s_philo_count_eating
+{
+	int		n;
+	sem_t	*s;
+}			t_philo_count_eating;
+
 typedef struct s_eat_flag
 {
 	bool	f;
 	sem_t	*s;
 }			t_eat_flag;
-
-typedef struct s_sim_data
-{
-	int				philo_num;
-	long			die_time;
-	long			eat_time;
-	long			sleep_time;
-	int				eat_limit;
-	t_super_flag	super_flag;
-	t_fork			fork;
-	t_philo_data	philo_data[PHILO_NUM_LIMIT];
-	pid_t			waiter_pid;
-	long			start_time;
-}					t_sim_data;
 
 typedef struct s_philo_data
 {
@@ -109,6 +101,21 @@ typedef struct s_philo_data
 	t_eat_flag	eat_flag;
 	pid_t		pid;
 }				t_philo_data;
+
+typedef struct s_sim_data
+{
+	int						philo_num;
+	long					die_time;
+	long					eat_time;
+	long					sleep_time;
+	int						eat_limit;
+	t_super_flag			super_flag;
+	t_fork					fork;
+	t_philo_count_eating	philo_count_eating;
+	t_philo_data			philo_data[PHILO_NUM_LIMIT];
+	pid_t					waiter_pid;
+	long					start_time;
+}							t_sim_data;
 
 // check_action_status.c
 int		check_action_status(
