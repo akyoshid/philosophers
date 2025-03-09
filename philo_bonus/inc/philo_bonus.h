@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/09 10:37:45 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/09 22:27:39 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ int		philo_atoi(char const *str);
 // philo_eat.c
 int		philo_eat(t_sim_data *sim_data, t_philo_data *philo_data);
 // philo_sleep.c
-int		philo_sleep(t_philo_data *philo_data);
+int		philo_sleep(t_sim_data *sim_data, t_philo_data *philo_data);
 // philo_think.c
 int		philo_think(t_sim_data *sim_data, t_philo_data *philo_data);
 // print_error.c
