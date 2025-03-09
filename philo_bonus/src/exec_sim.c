@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:42:42 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/09 10:39:18 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/09 11:02:38 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ int	_init_philo_data(t_sim_data *sim_data, t_philo_data *philo_data)
 		if (philo_data[i].eat_flag.s == SEM_FAILED)
 		{
 			clean_up_semaphore(sim_data, i);
-			print_error(ERR_SEM_OPEN);
-			return (1);
+			return (print_error(ERR_SEM_OPEN), 1);
 		}
 		sem_unlink(sem_name);
 		i++;
