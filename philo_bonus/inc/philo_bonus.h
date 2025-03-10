@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/09 22:27:39 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/10 02:35:28 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,16 @@ enum e_sim_data_field_num
 	EAT_LIMIT,
 };
 
+enum e_init_sem_status
+{
+	INIT_SEM_START_FLAG,
+	INIT_SEM_STOP_FLAG,
+	INIT_SEM_PHILO_COUNT_REACHED_EAT_LIMIT,
+	INIT_SEM_PRINT_FLAG,
+	INIT_SEM_FORK,
+	INIT_SEM_PAIR_OF_FORKS,
+};
+
 enum e_action
 {
 	ACTION_TAKE_FORK,
@@ -68,24 +78,6 @@ enum e_status
 	STATUS_CONTINUE,
 };
 
-typedef struct s_super_flag
-{
-	bool	start_flag;
-	bool	stop_flag;
-	int		philo_count_reached_eat_limit;
-	sem_t	*s;
-}			t_super_flag;
-
-typedef struct s_fork
-{
-	sem_t	*s;
-}			t_fork;
-
-typedef struct s_philo_count_eating
-{
-	int		n;
-	sem_t	*s;
-}			t_philo_count_eating;
 
 typedef struct s_eat_flag
 {
@@ -104,18 +96,21 @@ typedef struct s_philo_data
 
 typedef struct s_sim_data
 {
-	int						philo_num;
-	long					die_time;
-	long					eat_time;
-	long					sleep_time;
-	int						eat_limit;
-	t_super_flag			super_flag;
-	t_fork					fork;
-	t_philo_count_eating	philo_count_eating;
-	t_philo_data			philo_data[PHILO_NUM_LIMIT];
-	pid_t					waiter_pid;
-	long					start_time;
-}							t_sim_data;
+	int				philo_num;
+	long			die_time;
+	long			eat_time;
+	long			sleep_time;
+	int				eat_limit;
+	sem_t			*start_flag;
+	sem_t			*stop_flag;
+	sem_t			*philo_count_reached_eat_limit;
+	sem_t			*print_flag;
+	sem_t			*fork;
+	sem_t			*pair_of_forks;
+	t_philo_data	philo_data[PHILO_NUM_LIMIT];
+	pid_t			waiter_pid;
+	long			start_time;
+}					t_sim_data;
 
 // check_action_status.c
 int		check_action_status(t_sim_data *sim_data,
