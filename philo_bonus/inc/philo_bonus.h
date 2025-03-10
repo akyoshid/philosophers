@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/10 02:35:28 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/10 02:53:52 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,21 +78,14 @@ enum e_status
 	STATUS_CONTINUE,
 };
 
-
-typedef struct s_eat_flag
-{
-	bool	f;
-	sem_t	*s;
-}			t_eat_flag;
-
 typedef struct s_philo_data
 {
-	int			philo_id;
-	long		last_eat_timestamp;
-	int			eat_count;
-	t_eat_flag	eat_flag;
-	pid_t		pid;
-}				t_philo_data;
+	int		philo_id;
+	long	last_eat_timestamp;
+	int		eat_count;
+	sem_t	*eat_flag;
+	pid_t	pid;
+}			t_philo_data;
 
 typedef struct s_sim_data
 {
