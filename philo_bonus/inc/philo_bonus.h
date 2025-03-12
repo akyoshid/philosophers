@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/10 02:53:52 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/12 21:08:40 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,25 +78,11 @@ enum e_status
 	STATUS_CONTINUE,
 };
 
-typedef struct s_philo_data
-{
-	int		philo_id;
-	long	last_eat_timestamp;
-	int		eat_count;
-	sem_t	*start_flag;
-	sem_t	*eat_flag;
-	pid_t	pid;
-}			t_philo_data;
+typedef struct s_sim_data	t_sim_data;
+typedef struct s_philo_data	t_philo_data;
+typedef struct s_os_data	t_os_data;
 
-typedef struct s_os_data
-{
-	sem_t		*start_flag;
-	pthread_t	stop_flag_checker;
-	pthread_t	philo_count_reached_eat_limit_checker;
-	pthread_t	fork_server;
-}				t_os_data;
-
-typedef struct s_sim_data
+struct s_sim_data
 {
 	int				philo_num;
 	long			die_time;
@@ -111,7 +97,27 @@ typedef struct s_sim_data
 	t_philo_data	philo_data[PHILO_NUM_LIMIT];
 	t_os_data		os_data;
 	long			start_time;
-}					t_sim_data;
+};
+
+struct s_philo_data
+{
+	int			philo_id;
+	long		last_eat_timestamp;
+	int			eat_count;
+	t_sim_data	*sim_data;
+	sem_t		*start_flag;
+	sem_t		*eat_flag;
+	pid_t		pid;
+};
+
+struct s_os_data
+{
+	sem_t		*start_flag;
+	pthread_t	stop_flag_checker;
+	pthread_t	philo_death_checker[PHILO_NUM_LIMIT];
+	pthread_t	philo_count_reached_eat_limit_checker;
+	pthread_t	fork_server;
+};
 
 // check_action_status.c
 int		check_action_status(t_sim_data *sim_data,
@@ -126,8 +132,7 @@ void	clean_up_semaphore(t_sim_data *sim_data, int philo_num_opened_sem);
 // exec_sim_utils.c
 void	kill_philos(t_sim_data *sim_data, int philo_count);
 int		waitpid_philos(t_sim_data *sim_data, int philo_count);
-void	start_sim(t_sim_data *sim_data);
-void	wait_sim(t_sim_data *sim_data);
+void	stop_sim(t_sim_data *sim_data, int philo_num_created);
 // exec_sim.c
 int		exec_sim(t_sim_data *sim_data);
 // ft_strncpy.c
@@ -154,8 +159,12 @@ void	print_error(int error_code);
 // print_log.c
 int		print_log(t_sim_data *sim_data,
 			t_philo_data *philo_data, int action, long *timestamp_p);
-// start_routine.c
+// start_os_routine.c
+void	*start_philo_death_checker(void *arg);
+void	*start_fork_server(void *arg);
+void	*start_philo_count_reached_eat_limit_checker(void *arg);
+void	*start_stop_flag_checker(void *arg);
+// start_philo_routine.c
 void	start_philo_routine(t_sim_data *sim_data, t_philo_data *philo_data);
-void	start_waiter_routine(t_sim_data *sim_data, t_philo_data *philo_data);
 
 #endif

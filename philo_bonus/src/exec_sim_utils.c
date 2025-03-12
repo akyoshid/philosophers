@@ -6,30 +6,30 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 20:45:12 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/09 20:15:58 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/12 19:02:03 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo_bonus.h"
 
-void	kill_philos(t_sim_data *sim_data, int philo_count)
+void	kill_philos(t_sim_data *sim_data, int philo_num_created)
 {
 	int	i;
 
 	i = 0;
-	while (i < philo_count)
+	while (i < philo_num_created)
 	{
 		kill(sim_data->philo_data[i].pid, SIGTERM);
 		i++;
 	}
 }
 
-int	waitpid_philos(t_sim_data *sim_data, int philo_count)
+int	waitpid_philos(t_sim_data *sim_data, int philo_num_created)
 {
 	int	i;
 
 	i = 0;
-	while (i < philo_count)
+	while (i < philo_num_created)
 	{
 		waitpid(sim_data->philo_data[i].pid, NULL, 0);
 		i++;
@@ -37,19 +37,9 @@ int	waitpid_philos(t_sim_data *sim_data, int philo_count)
 	return (0);
 }
 
-void	start_sim(t_sim_data *sim_data)
+void	stop_sim(t_sim_data *sim_data, int philo_num_created)
 {
-	sem_wait(sim_data->super_flag.s);
-	sim_data->super_flag.start_flag = true;
-	sim_data->start_time = get_current_time();
-	sem_post(sim_data->super_flag.s);
-}
-
-void	wait_sim(t_sim_data *sim_data)
-{
-	waitpid(-1, NULL, 0);
-	kill_philos(sim_data, sim_data->philo_num);
-	waitpid_philos(sim_data, sim_data->philo_num);
-	kill(sim_data->waiter_pid, SIGTERM);
-	waitpid(sim_data->waiter_pid, NULL, 0);
+	kill_philos(sim_data, philo_num_created);
+	waitpid_philos(sim_data, philo_num_created);
+	clean_up_semaphore(sim_data, sim_data->philo_num);
 }

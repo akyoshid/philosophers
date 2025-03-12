@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/08 20:34:04 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/12 14:45:18 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ int	main(int argc, char *argv[])
 		return (PHILO_GENERAL_ERROR);
 	if (exec_sim(&sim_data) != 0)
 		return (PHILO_GENERAL_ERROR);
-	clean_up_semaphore(&sim_data, sim_data.philo_num);
 	return (PHILO_SUCCESS);
 }
