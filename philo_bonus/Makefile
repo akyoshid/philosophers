@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/03/09 20:19:22 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/03/11 07:21:29 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC = \
 			$(SRC_DIR)exec_sim.c \
 			$(SRC_DIR)ft_strncpy.c \
 			$(SRC_DIR)get_current_time.c \
+			$(SRC_DIR)init_philo_data.c \
 			$(SRC_DIR)init_semaphore.c \
 			$(SRC_DIR)init_sim_data.c \
 			$(SRC_DIR)philo_atoi.c \

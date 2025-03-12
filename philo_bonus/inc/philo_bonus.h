@@ -54,12 +54,12 @@ enum e_sim_data_field_num
 
 enum e_init_sem_status
 {
-	INIT_SEM_START_FLAG,
 	INIT_SEM_STOP_FLAG,
 	INIT_SEM_PHILO_COUNT_REACHED_EAT_LIMIT,
 	INIT_SEM_PRINT_FLAG,
 	INIT_SEM_FORK,
 	INIT_SEM_PAIR_OF_FORKS,
+	INIT_SEM_OS_START_FLAG,
 };
 
 enum e_action
@@ -83,9 +83,18 @@ typedef struct s_philo_data
 	int		philo_id;
 	long	last_eat_timestamp;
 	int		eat_count;
+	sem_t	*start_flag;
 	sem_t	*eat_flag;
 	pid_t	pid;
 }			t_philo_data;
+
+typedef struct s_os_data
+{
+	sem_t		*start_flag;
+	pthread_t	stop_flag_checker;
+	pthread_t	philo_count_reached_eat_limit_checker;
+	pthread_t	fork_server;
+}				t_os_data;
 
 typedef struct s_sim_data
 {
@@ -94,14 +103,13 @@ typedef struct s_sim_data
 	long			eat_time;
 	long			sleep_time;
 	int				eat_limit;
-	sem_t			*start_flag;
 	sem_t			*stop_flag;
 	sem_t			*philo_count_reached_eat_limit;
 	sem_t			*print_flag;
 	sem_t			*fork;
 	sem_t			*pair_of_forks;
 	t_philo_data	philo_data[PHILO_NUM_LIMIT];
-	pid_t			waiter_pid;
+	t_os_data		os_data;
 	long			start_time;
 }					t_sim_data;
 
@@ -114,7 +122,7 @@ int		check_alive(t_sim_data *sim_data,
 // check_eat_count.c
 int		check_eat_count(t_sim_data *sim_data, t_philo_data *philo_data);
 // clean_up_semaphore.c
-void	clean_up_semaphore(t_sim_data *sim_data, int philo_count);
+void	clean_up_semaphore(t_sim_data *sim_data, int philo_num_opened_sem);
 // exec_sim_utils.c
 void	kill_philos(t_sim_data *sim_data, int philo_count);
 int		waitpid_philos(t_sim_data *sim_data, int philo_count);
@@ -127,6 +135,8 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n);
 // get_current_time.c
 long	get_current_time(void);
 long	get_timestamp(t_sim_data *sim_data);
+// init_philo_data.c
+int		init_philo_data(t_sim_data *sim_data, t_philo_data *philo_data);
 // init_semaphore.c
 int		init_semaphore(t_sim_data *sim_data);
 // init_sim_data.c

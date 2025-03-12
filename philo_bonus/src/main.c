@@ -20,6 +20,8 @@ int	main(int argc, char *argv[])
 		return (PHILO_SYNTAX_ERROR);
 	if (init_semaphore(&sim_data) != 0)
 		return (PHILO_GENERAL_ERROR);
+	if (init_philo_data(&sim_data, sim_data.philo_data) != 0)
+		return (PHILO_GENERAL_ERROR);
 	if (exec_sim(&sim_data) != 0)
 		return (PHILO_GENERAL_ERROR);
 	clean_up_semaphore(&sim_data, sim_data.philo_num);

@@ -12,33 +12,6 @@
 
 #include "../inc/philo_bonus.h"
 
-int	_init_philo_data(t_sim_data *sim_data, t_philo_data *philo_data)
-{
-	int		i;
-	char	sem_name[13];
-
-	ft_strncpy(sem_name, "eat_flag_", 13);
-	i = 0;
-	while (i < sim_data->philo_num)
-	{
-		philo_data[i].philo_id = i + 1;
-		philo_data[i].last_eat_timestamp = 0;
-		philo_data[i].eat_count = 0;
-		sem_name[9] = ((i + 1) % 1000) / 100 + '0';
-		sem_name[10] = ((i + 1) % 100) / 10 + '0';
-		sem_name[11] = (i + 1) % 10 + '0';
-		philo_data[i].eat_flag = sem_open(sem_name, O_CREAT | O_EXCL, 0666, 0);
-		if (philo_data[i].eat_flag == SEM_FAILED)
-		{
-			clean_up_semaphore(sim_data, i);
-			return (print_error(ERR_SEM_OPEN), 1);
-		}
-		sem_unlink(sem_name);
-		i++;
-	}
-	return (0);
-}
-
 int	_create_philos(t_sim_data *sim_data, t_philo_data *philo_data)
 {
 	int	i;
@@ -80,8 +53,6 @@ int	_create_philos(t_sim_data *sim_data, t_philo_data *philo_data)
 
 int	exec_sim(t_sim_data *sim_data)
 {
-	if (_init_philo_data(sim_data, sim_data->philo_data) != 0)
-		return (1);
 	if (_create_philos(sim_data, sim_data->philo_data) != 0)
 		return (1);
 	// if (_create_waiter(sim_data, sim_data->philo_data) != 0)
