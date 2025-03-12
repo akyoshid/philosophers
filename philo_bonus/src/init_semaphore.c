@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 10:59:50 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/11 06:43:17 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/12 20:54:26 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*_get_sem_name(int init_sem_status)
 		return ("fork");
 	else if (init_sem_status == INIT_SEM_PAIR_OF_FORKS)
 		return ("pair_of_forks");
-	else if (init_sem_status == INIT_SEM_OS_START_FLAG)
+	else
 		return ("os_start_flag");
 }
 
@@ -45,7 +45,7 @@ sem_t	*_wrapped_sem_open(t_sim_data *sim_data, int init_sem_status)
 	else if (init_sem_status == INIT_SEM_PAIR_OF_FORKS)
 		return (sem_open(_get_sem_name(init_sem_status),
 				O_CREAT | O_EXCL, 0666, sim_data->philo_num / 2));
-	else if (init_sem_status == INIT_SEM_OS_START_FLAG)
+	else
 		return (sem_open(_get_sem_name(init_sem_status),
 				O_CREAT | O_EXCL, 0666, 0));
 }
