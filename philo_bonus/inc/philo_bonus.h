@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/13 06:33:03 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/13 08:55:30 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,13 +142,10 @@ void	*start_fork_server(void *arg);
 void	*start_philo_count_reached_eat_limit_checker(void *arg);
 void	*start_stop_flag_checker(void *arg);
 
-// philo_routine/
+// // philo_routine/
 // // philo_routine/check_action_status.c
 // int		check_action_status(t_sim_data *sim_data,
 // 			t_philo_data *philo_data, long start_timestamp, long timelimit);
-// // philo_routine/check_alive.c
-// int		check_alive(t_sim_data *sim_data,
-// 			t_philo_data *philo_data, bool have_super_flag, long timestamp);
 // // philo_routine/check_eat_count.c
 // int		check_eat_count(t_sim_data *sim_data, t_philo_data *philo_data);
 // // philo_routine/exec_sim.c
@@ -157,11 +154,11 @@ void	*start_stop_flag_checker(void *arg);
 // int		philo_eat(t_sim_data *sim_data, t_philo_data *philo_data);
 // // philo_routine/philo_sleep.c
 // int		philo_sleep(t_sim_data *sim_data, t_philo_data *philo_data);
-// // philo_routine/philo_think.c
-// int		philo_think(t_sim_data *sim_data, t_philo_data *philo_data);
-// // philo_routine/print_log.c
-// int		print_log(t_sim_data *sim_data,
-// 			t_philo_data *philo_data, int action, long *timestamp_p);
+// philo_routine/philo_think.c
+void	philo_think(t_sim_data *sim_data, t_philo_data *philo_data);
+// philo_routine/print_log.c
+void	print_log(t_sim_data *sim_data,
+			t_philo_data *philo_data, int action, long *timestamp_p);
 // philo_routine/start_philo_routine.c
 void	start_philo_routine(t_sim_data *sim_data, t_philo_data *philo_data);
 
