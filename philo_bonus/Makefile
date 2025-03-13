@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/03/13 08:54:36 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/03/13 10:33:49 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,10 @@ SRC = \
 			$(SRC_DIR)init/init_semaphore.c \
 			$(SRC_DIR)init/init_sim_data.c \
 			$(SRC_DIR)os_routine/start_os_routine.c \
+			$(SRC_DIR)philo_routine/check_action_status.c \
+			$(SRC_DIR)philo_routine/check_eat_count.c \
+			$(SRC_DIR)philo_routine/philo_eat.c \
+			$(SRC_DIR)philo_routine/philo_sleep.c \
 			$(SRC_DIR)philo_routine/philo_think.c \
 			$(SRC_DIR)philo_routine/print_log.c \
 			$(SRC_DIR)philo_routine/start_philo_routine.c \
@@ -37,10 +41,6 @@ SRC = \
 			$(SRC_DIR)utils/print_error.c \
 			$(SRC_DIR)utils/set_stop_flag.c \
 			$(SRC_DIR)main.c
-#			$(SRC_DIR)philo_routine/check_action_status.c \
-			$(SRC_DIR)philo_routine/check_eat_count.c \
-			$(SRC_DIR)philo_routine/philo_eat.c \
-			$(SRC_DIR)philo_routine/philo_sleep.c \
 
 OBJ =		$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))
 

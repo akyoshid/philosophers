@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/13 08:55:30 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:33:15 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,18 +142,16 @@ void	*start_fork_server(void *arg);
 void	*start_philo_count_reached_eat_limit_checker(void *arg);
 void	*start_stop_flag_checker(void *arg);
 
-// // philo_routine/
-// // philo_routine/check_action_status.c
-// int		check_action_status(t_sim_data *sim_data,
-// 			t_philo_data *philo_data, long start_timestamp, long timelimit);
-// // philo_routine/check_eat_count.c
-// int		check_eat_count(t_sim_data *sim_data, t_philo_data *philo_data);
-// // philo_routine/exec_sim.c
-// int		exec_sim(t_sim_data *sim_data);
-// // philo_routine/philo_eat.c
-// int		philo_eat(t_sim_data *sim_data, t_philo_data *philo_data);
-// // philo_routine/philo_sleep.c
-// int		philo_sleep(t_sim_data *sim_data, t_philo_data *philo_data);
+// philo_routine/
+// philo_routine/check_action_status.c
+int		check_action_status(
+			t_sim_data *sim_data, int action, long start_timestamp);
+// philo_routine/check_eat_count.c
+void	check_eat_count(t_sim_data *sim_data, t_philo_data *philo_data);
+// philo_routine/philo_eat.c
+void	philo_eat(t_sim_data *sim_data, t_philo_data *philo_data);
+// philo_routine/philo_sleep.c
+void	philo_sleep(t_sim_data *sim_data, t_philo_data *philo_data);
 // philo_routine/philo_think.c
 void	philo_think(t_sim_data *sim_data, t_philo_data *philo_data);
 // philo_routine/print_log.c
