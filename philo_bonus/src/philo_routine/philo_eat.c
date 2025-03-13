@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 21:47:48 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/09 20:16:44 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/13 05:30:28 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo_bonus.h"
+#include "../../inc/philo_bonus.h"
 
 void	_put_fork(t_sim_data *sim_data)
 {

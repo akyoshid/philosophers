@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 06:53:29 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/12 21:09:30 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/13 06:13:50 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo_bonus.h"
+#include "../../inc/philo_bonus.h"
 
 void	_set_sem_name(char *sem_name, int philo_id, bool start_flag)
 {
@@ -52,14 +52,14 @@ int	init_philo_data(t_sim_data *sim_data, t_philo_data *philo_data)
 		philo_data[i].start_flag = sem_open(
 				sem_name, O_CREAT | O_EXCL, 0666, 0);
 		if (philo_data[i].start_flag == SEM_FAILED)
-			return (clean_up_semaphore(sim_data, i),
+			return (close_semaphore(sim_data, i),
 				print_error(ERR_SEM_OPEN), 1);
 		sem_unlink(sem_name);
 		_set_sem_name(sem_name, philo_data[i].philo_id, false);
 		philo_data[i].eat_flag = sem_open(sem_name, O_CREAT | O_EXCL, 0666, 0);
 		if (philo_data[i].eat_flag == SEM_FAILED)
 			return (sem_close(philo_data[i].start_flag),
-				clean_up_semaphore(sim_data, i),
+				close_semaphore(sim_data, i),
 				print_error(ERR_SEM_OPEN), 1);
 		sem_unlink(sem_name);
 		i++;

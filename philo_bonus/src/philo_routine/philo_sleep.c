@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_action_status.c                              :+:      :+:    :+:   */
+/*   philo_sleep.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 21:43:42 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/09 11:24:18 by akyoshid         ###   ########.fr       */
+/*   Created: 2025/02/25 23:45:37 by akyoshid          #+#    #+#             */
+/*   Updated: 2025/03/13 05:30:30 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo_bonus.h"
+#include "../../inc/philo_bonus.h"
 
-int	check_action_status(t_sim_data *sim_data,
-		t_philo_data *philo_data, long start_timestamp, long timelimit)
+int	philo_sleep(t_sim_data *sim_data, t_philo_data *philo_data)
 {
-	long	current_timestamp;
 	int		status;
+	long	start_timestamp;
 
-	sem_wait(sim_data->super_flag.s);
-	current_timestamp = get_timestamp(sim_data);
-	if (check_alive(sim_data, philo_data, true, current_timestamp)
+	status = STATUS_CONTINUE;
+	if (print_log(sim_data, philo_data, ACTION_SLEEP, &start_timestamp)
 		== STATUS_STOP)
 		status = STATUS_STOP;
-	else if (current_timestamp - start_timestamp >= timelimit)
-		status = STATUS_SUCCESS;
-	else
-		status = STATUS_CONTINUE;
-	sem_post(sim_data->super_flag.s);
+	while (status == STATUS_CONTINUE)
+	{
+		usleep(100);
+		status = check_action_status(
+				sim_data, philo_data, start_timestamp, sim_data->sleep_time);
+	}
 	return (status);
 }

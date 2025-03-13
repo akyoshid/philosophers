@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 14:23:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/12 20:37:29 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/13 05:30:15 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo_bonus.h"
+#include "../../inc/philo_bonus.h"
 
 void	*start_philo_death_checker(void *arg)
 {

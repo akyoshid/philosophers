@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/03/12 19:30:02 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/03/13 06:22:30 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,26 +20,27 @@ INC = \
 			$(INC_DIR)philo_bonus.h \
 
 SRC = \
-			$(SRC_DIR)check_action_status.c \
-			$(SRC_DIR)check_alive.c \
-			$(SRC_DIR)check_eat_count.c \
-			$(SRC_DIR)clean_up_semaphore.c \
-			$(SRC_DIR)exec_sim_utils.c \
-			$(SRC_DIR)exec_sim.c \
-			$(SRC_DIR)ft_strncpy.c \
-			$(SRC_DIR)get_current_time.c \
-			$(SRC_DIR)init_philo_data.c \
-			$(SRC_DIR)init_semaphore.c \
-			$(SRC_DIR)init_sim_data.c \
-			$(SRC_DIR)philo_atoi.c \
-			$(SRC_DIR)philo_eat.c \
-			$(SRC_DIR)philo_sleep.c \
-			$(SRC_DIR)philo_think.c \
-			$(SRC_DIR)print_error.c \
-			$(SRC_DIR)print_log.c \
-			$(SRC_DIR)start_os_routine.c \
-			$(SRC_DIR)start_philo_routine.c \
+			$(SRC_DIR)exec_sim/create_os.c \
+			$(SRC_DIR)exec_sim/create_philos.c \
+			$(SRC_DIR)exec_sim/exec_sim.c \
+			$(SRC_DIR)init/init_philo_data.c \
+			$(SRC_DIR)init/init_semaphore.c \
+			$(SRC_DIR)init/init_sim_data.c \
+			$(SRC_DIR)os_routine/start_os_routine.c \
+			$(SRC_DIR)philo_routine/start_philo_routine.c \
+			$(SRC_DIR)utils/clean_up.c \
+			$(SRC_DIR)utils/ft_strncpy.c \
+			$(SRC_DIR)utils/get_time.c \
+			$(SRC_DIR)utils/philo_atoi.c \
+			$(SRC_DIR)utils/print_error.c \
 			$(SRC_DIR)main.c
+#			$(SRC_DIR)philo_routine/check_action_status.c \
+			$(SRC_DIR)philo_routine/check_alive.c \
+			$(SRC_DIR)philo_routine/check_eat_count.c \
+			$(SRC_DIR)philo_routine/philo_eat.c \
+			$(SRC_DIR)philo_routine/philo_sleep.c \
+			$(SRC_DIR)philo_routine/philo_think.c \
+			$(SRC_DIR)philo_routine/print_log.c \
 
 OBJ =		$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))
 

@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 20:29:12 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/09 11:17:39 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/13 05:30:21 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo_bonus.h"
+#include "../../inc/philo_bonus.h"
 
 int	check_alive(t_sim_data *sim_data,
 		t_philo_data *philo_data, bool have_super_flag, long timestamp)

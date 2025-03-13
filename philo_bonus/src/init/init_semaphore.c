@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 10:59:50 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/12 20:54:26 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/13 05:30:06 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo_bonus.h"
+#include "../../inc/philo_bonus.h"
 
 char	*_get_sem_name(int init_sem_status)
 {

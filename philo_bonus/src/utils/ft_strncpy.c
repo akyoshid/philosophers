@@ -6,9 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 22:17:29 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/01/13 12:32:02 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/13 05:31:08 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../inc/philo_bonus.h"
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
