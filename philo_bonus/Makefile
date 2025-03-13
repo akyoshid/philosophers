@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/03/13 06:22:30 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/03/13 08:28:17 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRC = \
 			$(SRC_DIR)utils/get_time.c \
 			$(SRC_DIR)utils/philo_atoi.c \
 			$(SRC_DIR)utils/print_error.c \
+			$(SRC_DIR)utils/set_stop_flag.c \
 			$(SRC_DIR)main.c
 #			$(SRC_DIR)philo_routine/check_action_status.c \
 			$(SRC_DIR)philo_routine/check_alive.c \

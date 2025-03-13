@@ -180,5 +180,7 @@ long	get_timestamp(t_sim_data *sim_data);
 int		philo_atoi(char const *str);
 // utils/print_error.c
 void	print_error(int error_code);
+// utils/set_stop_flag.c
+void	set_stop_flag(t_sim_data *sim_data);
 
 #endif

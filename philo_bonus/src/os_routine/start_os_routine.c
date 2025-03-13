@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 14:23:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/13 05:30:15 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/13 08:49:57 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@ void	*start_philo_death_checker(void *arg)
 		if (timestamp - philo_data->last_eat_timestamp >= sim_data->die_time)
 		{
 			printf("%ld %d died\n", timestamp / 1000, philo_data->philo_id);
-			sem_post(sim_data->stop_flag);
-			while (1)
-				;
+			set_stop_flag(sim_data);
 		}
 		sem_post(sim_data->print_flag);
 	}
@@ -82,9 +80,7 @@ void	*start_philo_count_reached_eat_limit_checker(void *arg)
 		else
 			sem_post(sim_data->print_flag);
 	}
-	sem_post(sim_data->stop_flag);
-	while (1)
-		;
+	set_stop_flag(sim_data);
 	return (NULL);
 }
 
