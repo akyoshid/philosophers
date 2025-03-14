@@ -54,12 +54,20 @@ enum e_sim_data_field_num
 
 enum e_init_sem_status
 {
+	INIT_SEM_PREPARE_FLAG,
+	INIT_SEM_START_FLAG,
 	INIT_SEM_STOP_FLAG,
 	INIT_SEM_PHILO_COUNT_REACHED_EAT_LIMIT,
 	INIT_SEM_PRINT_FLAG,
 	INIT_SEM_FORK,
 	INIT_SEM_PAIR_OF_FORKS,
-	INIT_SEM_OS_START_FLAG,
+};
+
+enum e_init_philo_sem_status
+{
+	INIT_PHILO_SEM_START_DEATH_CHECKER_FLAG,
+	INIT_PHILO_SEM_EAT_FLAG,
+	INIT_PHILO_SEM_LAST_EAT_TIMESTAMP,
 };
 
 enum e_action
@@ -82,22 +90,27 @@ typedef struct s_sim_data	t_sim_data;
 typedef struct s_philo_data	t_philo_data;
 typedef struct s_os_data	t_os_data;
 
+typedef struct s_sem_timestamp
+{
+	long	t;
+	sem_t	*s;
+}			t_sem_timestamp;
+
 struct s_philo_data
 {
-	int			philo_id;
-	long		last_eat_timestamp;
-	int			eat_count;
-	t_sim_data	*sim_data;
-	sem_t		*start_flag;
-	sem_t		*eat_flag;
-	pid_t		pid;
+	int				philo_id;
+	int				eat_count;
+	t_sim_data		*sim_data;
+	pid_t			pid;
+	pthread_t		death_checker;
+	sem_t			*start_death_checker_flag;
+	sem_t			*eat_flag;
+	t_sem_timestamp	last_eat_timestamp;
 };
 
 struct s_os_data
 {
-	sem_t		*start_flag;
 	pthread_t	stop_flag_checker;
-	pthread_t	philo_death_checker[PHILO_NUM_LIMIT];
 	pthread_t	philo_count_reached_eat_limit_checker;
 	pthread_t	fork_server;
 };
@@ -109,6 +122,8 @@ struct s_sim_data
 	long			eat_time;
 	long			sleep_time;
 	int				eat_limit;
+	sem_t			*prepare_flag;
+	sem_t			*start_flag;
 	sem_t			*stop_flag;
 	sem_t			*philo_count_reached_eat_limit;
 	sem_t			*print_flag;
