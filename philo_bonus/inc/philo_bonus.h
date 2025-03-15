@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/15 20:34:20 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/15 21:21:04 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # include <sys/wait.h>
 
 # define PHILO_NUM_LIMIT 200
-# define WAITING_TIME_TO_START_SIM 1000 * 100
+# define WAITING_TIME_TO_START_SIM 100000
 
 enum e_exit_status
 {

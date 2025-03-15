@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 06:53:29 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/14 05:24:23 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/15 21:20:20 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ sem_t	*_open_philo_sem(int i, int init_sem_status)
 
 void	_init_philo_sem_error(t_sim_data *sim_data, int i, int init_sem_status)
 {
-	t_philo_data *philo_data;
+	t_philo_data	*philo_data;
 
 	philo_data = sim_data->philo_data;
 	if (init_sem_status >= INIT_PHILO_SEM_LAST_EAT_TIMESTAMP)
@@ -74,7 +74,7 @@ void	_init_philo_sem_error(t_sim_data *sim_data, int i, int init_sem_status)
 void	_save_philo_sem_addr(
 	t_sim_data *sim_data, int i, int init_sem_status, sem_t *sem_addr)
 {
-	t_philo_data *philo_data;
+	t_philo_data	*philo_data;
 
 	philo_data = sim_data->philo_data;
 	if (init_sem_status == INIT_PHILO_SEM_START_DEATH_CHECKER_FLAG)
@@ -83,7 +83,6 @@ void	_save_philo_sem_addr(
 		philo_data[i].eat_flag = sem_addr;
 	else
 		philo_data[i].last_eat_timestamp.s = sem_addr;
-
 }
 
 int	init_philo_data(t_sim_data *sim_data, t_philo_data *philo_data)
