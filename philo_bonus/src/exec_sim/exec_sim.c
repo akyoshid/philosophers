@@ -6,43 +6,44 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:42:42 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/14 05:34:31 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/15 20:36:17 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/philo_bonus.h"
 
-void	_start_sim(t_sim_data *sim_data, t_philo_data *philo_data)
+void	_start_sim(t_sim_data *sim_data)
 {
 	int	i;
 
 	i = 0;
 	while (i < sim_data->philo_num)
 	{
-		sem_post(philo_data[i].start_flag);
+		sem_wait(sim_data->prepare_flag);
 		i++;
 	}
 	i = 0;
-	while (i < sim_data->philo_num + 3)
+	while (i < sim_data->philo_num)
 	{
-		sem_post(sim_data->os_data.start_flag);
+		sem_post(sim_data->start_flag);
 		i++;
 	}
 }
 
-void	_wait_sim_stop(t_sim_data *sim_data)
+void	_wait_sim_stop(void)
 {
-	pthread_join(sim_data->os_data.stop_flag_checker, NULL);
+	while (1)
+		usleep(UINT_MAX);
 }
 
 int	exec_sim(t_sim_data *sim_data)
 {
+	if (create_os(sim_data, &sim_data->os_data) != 0)
+		return (1);
 	sim_data->start_time = get_current_time();
 	if (create_philos(sim_data, sim_data->philo_data) != 0)
 		return (1);
-	if (create_os(sim_data, &sim_data->os_data) != 0)
-		return (1);
-	_start_sim(sim_data, sim_data->philo_data);
-	_wait_sim_stop(sim_data);
+	_start_sim(sim_data);
+	_wait_sim_stop();
 	return (0);
 }

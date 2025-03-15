@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/03/13 10:33:49 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/03/14 07:05:28 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRC = \
 			$(SRC_DIR)philo_routine/philo_sleep.c \
 			$(SRC_DIR)philo_routine/philo_think.c \
 			$(SRC_DIR)philo_routine/print_log.c \
+			$(SRC_DIR)philo_routine/start_death_checker.c \
 			$(SRC_DIR)philo_routine/start_philo_routine.c \
 			$(SRC_DIR)utils/clean_up.c \
 			$(SRC_DIR)utils/ft_strncpy.c \

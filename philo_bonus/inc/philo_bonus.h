@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/13 10:33:15 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/15 20:34:20 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # include <sys/wait.h>
 
 # define PHILO_NUM_LIMIT 200
+# define WAITING_TIME_TO_START_SIM 1000 * 100
 
 enum e_exit_status
 {
@@ -41,6 +42,7 @@ enum e_error_code
 	ERR_PTHREAD_CREATE,
 	ERR_SEM_OPEN,
 	ERR_FORK,
+	ERR_ADJUST_START_TIME,
 };
 
 enum e_sim_data_field_num
@@ -172,6 +174,8 @@ void	philo_think(t_sim_data *sim_data, t_philo_data *philo_data);
 // philo_routine/print_log.c
 void	print_log(t_sim_data *sim_data,
 			t_philo_data *philo_data, int action, long *timestamp_p);
+// philo_routine/start_death_checker.c
+void	*start_death_checker(void *arg);
 // philo_routine/start_philo_routine.c
 void	start_philo_routine(t_sim_data *sim_data, t_philo_data *philo_data);
 

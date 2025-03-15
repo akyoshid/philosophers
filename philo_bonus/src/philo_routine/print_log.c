@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 09:01:23 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/13 08:40:29 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/14 06:55:08 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*_get_log_message(int action)
 void	_check_alive(
 	t_sim_data *sim_data, t_philo_data *philo_data, long timestamp)
 {
-	if (timestamp - philo_data->last_eat_timestamp >= sim_data->die_time)
+	if (timestamp - philo_data->last_eat_timestamp.t >= sim_data->die_time)
 	{
 		printf("%ld %d died\n", timestamp / 1000, philo_data->philo_id);
 		set_stop_flag(sim_data);
@@ -40,7 +40,7 @@ void	_check_alive(
 
 // Store the output timestamp in *timestamp_p
 void	print_log(t_sim_data *sim_data,
-		t_philo_data *philo_data, int action, long *timestamp_p)
+	t_philo_data *philo_data, int action, long *timestamp_p)
 {
 	char	*mes;
 	long	timestamp;
@@ -48,9 +48,11 @@ void	print_log(t_sim_data *sim_data,
 	mes = _get_log_message(action);
 	sem_wait(sim_data->print_flag);
 	timestamp = get_timestamp(sim_data);
+	sem_wait(philo_data->last_eat_timestamp.s);
 	if (action == ACTION_EAT)
-		philo_data->last_eat_timestamp = timestamp;
+		philo_data->last_eat_timestamp.t = timestamp;
 	_check_alive(sim_data, philo_data, timestamp);
+	sem_post(philo_data->last_eat_timestamp.s);
 	printf("%ld %d %s\n", timestamp / 1000, philo_data->philo_id, mes);
 	sem_post(sim_data->print_flag);
 	if (timestamp_p != NULL)
