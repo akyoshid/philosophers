@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 09:01:23 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/14 06:55:08 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/16 09:11:07 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	_check_alive(
 	}
 }
 
-// Store the output timestamp in *timestamp_p
+// Store the output timestamp in *timestamp_p.
 void	print_log(t_sim_data *sim_data,
 	t_philo_data *philo_data, int action, long *timestamp_p)
 {

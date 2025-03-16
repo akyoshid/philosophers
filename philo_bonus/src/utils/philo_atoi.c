@@ -6,14 +6,9 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 14:51:09 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/13 05:31:18 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/16 09:11:45 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// === DESCRIPTION ===
-// Convert a string of digits into a positive integer value. 
-// If it contains non-numeric characters, return -2.
-// If it was a negative number or bigger than INT_MAX, return -1.
 
 #include "../../inc/philo_bonus.h"
 
@@ -32,6 +27,9 @@ int	_check_non_integer(char const *str)
 	return (0);
 }
 
+// Convert a string of digits into a positive integer value. 
+// If it contains non-numeric characters, return -2.
+// If it was a negative number or bigger than INT_MAX, return -1.
 int	philo_atoi(char const *str)
 {
 	int	num;

@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/16 08:24:44 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/16 09:15:41 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,6 @@ enum e_action
 	ACTION_THINK,
 };
 
-enum e_status
-{
-	STATUS_SUCCESS,
-	STATUS_STOP,
-	STATUS_FAILURE,
-	STATUS_CONTINUE,
-};
-
 typedef struct s_sim_data	t_sim_data;
 typedef struct s_philo_data	t_philo_data;
 typedef struct s_os_data	t_os_data;
@@ -157,17 +149,15 @@ int		init_sim_data(int argc, char *argv[], t_sim_data *sim_data);
 
 // os_routine/
 // os_routine/start_os_routine.c
-void	*start_fork_server(void *arg);
-void	*start_philo_count_reached_eat_limit_checker(void *arg);
-void	*start_stop_flag_checker(void *arg);
 void	*start_error_flag_checker(void *arg);
+void	*start_stop_flag_checker(void *arg);
+void	*start_philo_count_reached_eat_limit_checker(void *arg);
+void	*start_fork_server(void *arg);
 
 // philo_routine/
 // philo_routine/check_action_status.c
 int		check_action_status(
 			t_sim_data *sim_data, int action, long start_timestamp);
-// philo_routine/check_eat_count.c
-void	check_eat_count(t_sim_data *sim_data, t_philo_data *philo_data);
 // philo_routine/philo_eat.c
 void	philo_eat(t_sim_data *sim_data, t_philo_data *philo_data);
 // philo_routine/philo_sleep.c
@@ -198,7 +188,7 @@ int		philo_atoi(char const *str);
 // utils/print_error.c
 void	print_error(int error_code);
 // utils/set_flag.c
-void	set_stop_flag(t_sim_data *sim_data);
 void	set_error_flag(t_sim_data *sim_data);
+void	set_stop_flag(t_sim_data *sim_data);
 
 #endif
