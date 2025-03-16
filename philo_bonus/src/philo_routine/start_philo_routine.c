@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 07:43:44 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/15 20:32:09 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/16 08:31:07 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	_create_death_checker(t_sim_data *sim_data, t_philo_data *philo_data)
 	{
 		sem_wait(sim_data->print_flag);
 		print_error(ERR_PTHREAD_CREATE);
-		set_stop_flag(sim_data);
+		set_error_flag(sim_data);
 	}
 	pthread_detach(philo_data->death_checker);
 }
@@ -34,7 +34,7 @@ void	_adjust_start_time(t_sim_data *sim_data)
 	{
 		sem_wait(sim_data->print_flag);
 		print_error(ERR_ADJUST_START_TIME);
-		set_stop_flag(sim_data);
+		set_error_flag(sim_data);
 	}
 	else
 		sim_data->start_time += WAITING_TIME_TO_START_SIM;

@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/20 22:45:05 by akyoshid          #+#    #+#              #
-#    Updated: 2025/03/14 07:05:28 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/03/16 08:24:12 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ SRC = \
 			$(SRC_DIR)utils/get_time.c \
 			$(SRC_DIR)utils/philo_atoi.c \
 			$(SRC_DIR)utils/print_error.c \
-			$(SRC_DIR)utils/set_stop_flag.c \
+			$(SRC_DIR)utils/set_flag.c \
 			$(SRC_DIR)main.c
 
 OBJ =		$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))

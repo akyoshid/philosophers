@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 14:23:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/15 20:47:27 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/16 08:25:46 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,14 @@ void	*start_stop_flag_checker(void *arg)
 	sem_wait(sim_data->stop_flag);
 	stop_sim(sim_data, sim_data->philo_num);
 	exit(PHILO_SUCCESS);
+}
+
+void	*start_error_flag_checker(void *arg)
+{
+	t_sim_data	*sim_data;
+
+	sim_data = (t_sim_data *)arg;
+	sem_wait(sim_data->error_flag);
+	stop_sim(sim_data, sim_data->philo_num);
+	exit(PHILO_GENERAL_ERROR);
 }

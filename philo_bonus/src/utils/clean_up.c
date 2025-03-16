@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 20:45:12 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/14 05:25:28 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/16 08:18:55 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	close_semaphore(t_sim_data *sim_data, int philo_num_opened_sem)
 	int	i;
 
 	sem_close(sim_data->prepare_flag);
+	sem_close(sim_data->error_flag);
 	sem_close(sim_data->start_flag);
 	sem_close(sim_data->stop_flag);
 	sem_close(sim_data->philo_count_reached_eat_limit);

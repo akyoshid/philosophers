@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:30:26 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/03/15 21:21:04 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/03/16 08:24:44 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ enum e_sim_data_field_num
 enum e_init_sem_status
 {
 	INIT_SEM_PREPARE_FLAG,
+	INIT_SEM_ERROR_FLAG,
 	INIT_SEM_START_FLAG,
 	INIT_SEM_STOP_FLAG,
 	INIT_SEM_PHILO_COUNT_REACHED_EAT_LIMIT,
@@ -112,6 +113,7 @@ struct s_philo_data
 
 struct s_os_data
 {
+	pthread_t	error_flag_checker;
 	pthread_t	stop_flag_checker;
 	pthread_t	philo_count_reached_eat_limit_checker;
 	pthread_t	fork_server;
@@ -125,6 +127,7 @@ struct s_sim_data
 	long			sleep_time;
 	int				eat_limit;
 	sem_t			*prepare_flag;
+	sem_t			*error_flag;
 	sem_t			*start_flag;
 	sem_t			*stop_flag;
 	sem_t			*philo_count_reached_eat_limit;
@@ -154,10 +157,10 @@ int		init_sim_data(int argc, char *argv[], t_sim_data *sim_data);
 
 // os_routine/
 // os_routine/start_os_routine.c
-void	*start_philo_death_checker(void *arg);
 void	*start_fork_server(void *arg);
 void	*start_philo_count_reached_eat_limit_checker(void *arg);
 void	*start_stop_flag_checker(void *arg);
+void	*start_error_flag_checker(void *arg);
 
 // philo_routine/
 // philo_routine/check_action_status.c
@@ -194,7 +197,8 @@ long	get_timestamp(t_sim_data *sim_data);
 int		philo_atoi(char const *str);
 // utils/print_error.c
 void	print_error(int error_code);
-// utils/set_stop_flag.c
+// utils/set_flag.c
 void	set_stop_flag(t_sim_data *sim_data);
+void	set_error_flag(t_sim_data *sim_data);
 
 #endif
